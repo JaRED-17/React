@@ -1,0 +1,14 @@
+.Button {
+    width: max-content;
+    padding: 10px 20px;
+    border: 1px solid black;
+    margin: 5px 10px;
+
+    &:hover {
+        background: grey;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+}
