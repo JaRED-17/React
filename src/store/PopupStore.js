@@ -1,6 +1,6 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeObservable, observable, action, autorun } from "mobx";
 
-class Store {
+class PopupStore {
     isPopupOpen = false;
 
     constructor() {
@@ -8,7 +8,7 @@ class Store {
             isPopupOpen: observable,
             openPopup: action.bound,
             closePopup: action.bound
-        });        
+        });
     }
   
     openPopup() {
@@ -20,4 +20,4 @@ class Store {
     }
 }
 
-export default new Store();
+export default PopupStore;

@@ -1,7 +1,7 @@
 import React, { Children } from "react";
 import Button from "../Button/Button";
 import { observer } from "mobx-react"
-import PopupStore from "../../store/PopupStore"
+import PopupStore from "../../store"
 
 class Popup extends React.Component {
 

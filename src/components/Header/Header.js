@@ -1,11 +1,11 @@
 import React from "react";
 import Button from "../Button/Button";
-import PopupStore from "../../store/PopupStore"
+import PopupStore from "../../store"
 
 class Header extends React.Component {
 
   render() {
-    
+
     return (
       <div className="Header">
         <div className="Logo">
