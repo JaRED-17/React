@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import Button from "../Button/Button";
 import { observer } from "mobx-react"
 import PopupStore from "../../store"

@@ -1,4 +1,4 @@
-import { makeObservable, observable, action, autorun } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
 class PopupStore {
     isPopupOpen = false;
