@@ -1,7 +1,6 @@
 import React from "react";
-import './Content.scss';
 import Sidebanner from '../Sidebanner/Sidebanner';
-
+import Gamenews from '../Gamenews/Gamenews';
 
 class Content extends React.Component {
 
@@ -9,6 +8,7 @@ class Content extends React.Component {
     return (
         <div className="Content">
             <Sidebanner class='left' />
+            <Gamenews />
             <Sidebanner class='rigth' />
         </div>
     );

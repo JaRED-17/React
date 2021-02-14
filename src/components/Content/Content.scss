@@ -1,0 +1,12 @@
+.Content {
+    display: flex;
+    min-height: 500px;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    & > div {
+        height: auto;
+        background-color: $main;
+        margin: 10px;
+    }
+}

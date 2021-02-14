@@ -1,0 +1,10 @@
+.Sidebanner {
+    width: 200px;
+    height: 100%;
+
+    @include tablet {
+        &.left {
+            display: none;
+        } 
+    }
+}

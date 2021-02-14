@@ -1,10 +1,11 @@
 import React from "react";
-import './Button.scss';
 
 class Button extends React.Component {
   render() {
+    const classes = `button ${this.props.className}`
+
     return (
-      <button className="Button" onClick={this.props.handleClick}>
+      <button className={classes} onClick={this.props.handleClick}>
         {this.props.name}
       </button>
     );

@@ -1,0 +1,7 @@
+.Gamenews {
+    width: calc(100% - 400px);
+
+    @include tablet {
+        width: calc(100% - 200px);
+    }
+}

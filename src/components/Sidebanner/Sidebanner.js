@@ -1,5 +1,4 @@
 import React from "react";
-import './Sidebanner.scss';
 
 class Sidebanner extends React.Component {
 

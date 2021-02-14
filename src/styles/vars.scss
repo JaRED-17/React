@@ -1,0 +1,10 @@
+$main: #d1cccc;
+$background: #e6dfdf;
+
+/* Media */
+
+@mixin tablet {
+    @media (max-width: 768px) {
+      @content;
+    }
+}
