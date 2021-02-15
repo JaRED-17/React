@@ -1,9 +1,9 @@
 import React from "react";
-import Header from '../Header/Header';
-import Content from '../Content/Content';
-import Footer from '../Footer/Footer';
-import Popup from '../Popup/Popup';
-import Preloader from '../Preloader/Preloader';
+import Header from '../Header';
+import Content from '../Content';
+import Footer from '../Footer';
+import Popup from '../Popup';
+import Preloader from '../Preloader';
 
 class App extends React.Component {
   render() {

@@ -17,7 +17,7 @@ class Preloader extends React.Component {
     render() {
         const { isLoading } = this.state;
 
-        return isLoading ?  this.content : null;
+        return isLoading ? this.content : null;
     }
 }
 

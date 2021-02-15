@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebanner from '../Sidebanner/Sidebanner';
-import Gamenews from '../Gamenews/Gamenews';
+import Sidebanner from '../Sidebanner';
+import Gamenews from '../Gamenews';
 
 class Content extends React.Component {
 
