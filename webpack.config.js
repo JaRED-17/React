@@ -20,7 +20,9 @@ module.exports = {
         progress: true
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './public/index.html' }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        }),
         new MiniCssExtractPlugin({
             filename: '[name]-[hash].css'
         }),
