@@ -24,3 +24,24 @@
     background-color: #0000ff;
     border-color: #ff0000;
 }
+
+.close {
+    position: relative;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 7px;
+    font-size: 0;
+}
+
+.close:before {
+    content: 'X';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

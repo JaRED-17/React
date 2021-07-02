@@ -11,7 +11,7 @@ class Popup extends React.Component {
         return (
             <div className='Popup'>
                 <div className='popupHeader'>
-                    <Button className="primary" name="Close" handleClick={PopupStore.closePopup} />
+                    <Button className="close" name="Close" handleClick={PopupStore.closePopup} />
                 </div>
                 <div className='popupContent'>{children}</div>
             </div>
