@@ -1,9 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -17,24 +15,19 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all'
-        },
-        minimizer: [
-            new OptimizeCssAssetWebpackPlugin(),
-            new TerserWebpackPlugin()
-        ]
+        }
     },
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 8080,
-        watchContentBase: true,
-        progress: true
-    },
+    // devServer: {
+    //     contentBase: path.join(__dirname, "dist"),
+    //     port: 8080,
+    //     watchContentBase: true,
+    //     progress: true
+    // },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
             minify: {
-                collapseWhitespace: true
+                collapseWhitespace: false
             }
         }),
         new MiniCssExtractPlugin({

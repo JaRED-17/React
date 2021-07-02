@@ -1,18 +1,17 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-    mode: "development",
+    mode: "production",
     output: {
-        path: path.resolve(__dirname, '/dist'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name]-[hash]-bundle.js',
         clean: true,
-        publicPath: '/',
     },
     optimization: {
         splitChunks: {
@@ -22,13 +21,6 @@ module.exports = {
             new OptimizeCssAssetWebpackPlugin(),
             new TerserWebpackPlugin()
         ]
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 8080,
-        watchContentBase: true,
-        progress: true
     },
     plugins: [
         new HtmlWebpackPlugin({
