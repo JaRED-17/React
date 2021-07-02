@@ -8,7 +8,7 @@ class Gamenews extends React.Component {
   };
 
   get news() {
-    fetch('../../media/news/15.02.html').then((response) => {
+    fetch('/media/news/15.02.html').then((response) => {
       return response.text();
     }).then((html) => {
       return this.setState({
@@ -24,9 +24,7 @@ class Gamenews extends React.Component {
 
   get newsContent() {
     return (
-        <div className="Gamenews">
-          {this.state.content}
-        </div>
+        <div className="Gamenews" dangerouslySetInnerHTML={{ __html: this.state.content }} />
     )
   }
 
