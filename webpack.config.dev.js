@@ -17,12 +17,12 @@ module.exports = {
             chunks: 'all'
         }
     },
-    // devServer: {
-    //     contentBase: path.join(__dirname, "dist"),
-    //     port: 8080,
-    //     watchContentBase: true,
-    //     progress: true
-    // },
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        port: 8080,
+        watchContentBase: true,
+        progress: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
