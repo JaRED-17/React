@@ -1,4 +1,5 @@
 import React from "react";
+import Core from '../../core/Core'
 
 class Gamenews extends React.Component {
 
@@ -8,14 +9,12 @@ class Gamenews extends React.Component {
   };
 
   get news() {
-    fetch('/media/news/15.02.html').then((response) => {
-      return response.text();
-    }).then((html) => {
-      return this.setState({
+    Core.News().then((html) => {
+      this.setState({
         isLoading: false,
         content: html
-      });
-    });
+      })
+    })
   }
 
   get content() {
