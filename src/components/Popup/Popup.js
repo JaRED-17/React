@@ -10,10 +10,10 @@ class Popup extends React.Component {
 
         return (
             <div className='Popup'>
-                <div className='popupHeader'>
+                <div className='header'>
                     <Button className="close" name="Close" handleClick={PopupStore.closePopup} />
                 </div>
-                <div className='popupContent'>{children}</div>
+                <div className='content'>{children}</div>
             </div>
         );
     }
