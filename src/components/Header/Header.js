@@ -1,22 +1,8 @@
 import React from "react";
 import Button from "../Button";
 import PopupStore from "../../store"
-import Core from "../../core/Core"
 
 class Header extends React.Component {
-    login () {
-        PopupStore.openPopup()
-        Core.Login().then((response) => {
-            console.log(response)
-        })
-    }
-
-    register () {
-        PopupStore.openPopup()
-        Core.Register().then((response) => {
-            console.log(response)
-        })
-    }
 
     render() {
         return (
@@ -25,8 +11,8 @@ class Header extends React.Component {
                       <h1>Game news</h1>
                 </div>
                 <div className="Buttons">
-                      <Button className="primary" name="Login" handleClick={this.login} />
-                      <Button className="secondary" name="Registration" handleClick={this.register} />
+                      <Button className="primary" name="Login" handleClick={PopupStore.openPopup} />
+                      <Button className="secondary" name="Registration" handleClick={PopupStore.openPopup} />
                 </div>
             </div>
         );

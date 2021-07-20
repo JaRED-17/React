@@ -4,6 +4,7 @@ import Content from '../Content';
 import Footer from '../Footer';
 import Popup from '../Popup';
 import Preloader from '../Preloader';
+import LoginForm from '../LoginForm';
 
 class App extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class App extends React.Component {
         <Footer />
         <Preloader />
         <Popup>
-          <p>Default content</p>
+            <LoginForm />
         </Popup>
       </div>
     );
