@@ -2,9 +2,9 @@ import React from "react";
 import Header from '../Header';
 import Content from '../Content';
 import Footer from '../Footer';
-import Popup from '../Popup';
 import Preloader from '../Preloader';
-import LoginForm from '../LoginForm';
+import PopupHandler from '../PopupHandler';
+import Routes from '../Routes';
 
 class App extends React.Component {
   render() {
@@ -15,9 +15,8 @@ class App extends React.Component {
         <Content />
         <Footer />
         <Preloader />
-        <Popup>
-            <LoginForm />
-        </Popup>
+        <PopupHandler />
+        <Routes />
       </div>
     );
   }

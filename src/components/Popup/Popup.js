@@ -19,7 +19,7 @@ class Popup extends React.Component {
     }
     
     render() {
-        const { isPopupOpen } = PopupStore;       
+        const { isPopupOpen } = PopupStore;
 
         return isPopupOpen ? this.content : null;
     }
