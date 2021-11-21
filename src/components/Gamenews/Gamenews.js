@@ -1,4 +1,5 @@
 import React from "react";
+import News from "../News"
 import Core from '../../core/Core'
 
 class Gamenews extends React.Component {
@@ -18,11 +19,10 @@ class Gamenews extends React.Component {
     }
 
     get allNews () {
-        return Core.allNews().then(html => {
-
+        return Core.allNews().then(allNews => {
             this.setState({
                 isLoading: false,
-                content: html.join('')
+                content: allNews
             })
         })
     }
@@ -31,11 +31,22 @@ class Gamenews extends React.Component {
         return <div className="Gamenews"></div>
     }
 
-  get newsContent () {
-    return (
-        <div className="Gamenews" dangerouslySetInnerHTML={{ __html: this.state.content }} />
-    )
-  }
+    get newsContent () {
+        return typeof this.state.content === 'string' ? (
+            <div className="Gamenews">
+                <News content={this.state.content} />
+            </div>
+        ) : (
+            <div className="Gamenews">
+                {
+                    this.state.content.map(html => {
+                        console.log('1',html)
+                        return <News content={html} />
+                    })
+                }
+            </div>
+        )
+    }
 
     render () {
         const {isLoading} = this.state;
