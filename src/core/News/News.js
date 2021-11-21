@@ -13,10 +13,7 @@ class News extends React.Component {
     static allNews = function () {
         let newsNames = ['15.02', '02.07'];
 
-        return Promise.all(this.combineRequests(this.news, newsNames)).then(allResponses => {
-            console.log('allResponses', allResponses);
-            return allResponses;
-        })
+        return Promise.all(this.combineRequests(this.news, newsNames)).then(allResponses => allResponses)
     }
 
     // HELPERS
