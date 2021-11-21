@@ -9,27 +9,21 @@ class Gamenews extends React.Component {
         content: ''
     };
 
-    get news () {
-        return Core.News().then((html) => {
-            this.setState({
-                isLoading: false,
-                content: html
-            })
+    news = () => Core.News().then(html => {
+        this.setState({
+            isLoading: false,
+            content: html
         })
-    }
+    })
 
-    get allNews () {
-        return Core.allNews().then(allNews => {
-            this.setState({
-                isLoading: false,
-                content: allNews
-            })
+    allNews = () => Core.allNews().then(allNews => {
+        this.setState({
+            isLoading: false,
+            content: allNews
         })
-    }
+    })
 
-    content (News) {
-        return <div className="Gamenews">{News}</div>
-    }
+    content = (News) => <div className="Gamenews">{News}</div>
 
     get newsContent () {
         return typeof this.state.content === 'string'
@@ -40,8 +34,8 @@ class Gamenews extends React.Component {
     render () {
         const {isLoading} = this.state;
         // eslint-disable-next-line no-unused-expressions
-        isLoading ? this.allNews : null;
-        return isLoading ? this.content : this.newsContent;
+        isLoading ? this.allNews() : null;
+        return isLoading ? this.content() : this.newsContent;
     }
 }
 
