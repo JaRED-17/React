@@ -32,9 +32,9 @@ class Gamenews extends React.Component {
     }
 
     get newsContent () {
-        return typeof this.state.content === 'string' ?
-            this.content(<News content={this.state.content} />) :
-            this.content(this.state.content.map(html => <News content={html} />))
+        return typeof this.state.content === 'string'
+            ? this.content(<News content={this.state.content} />)
+            : this.content(this.state.content.map(html => <News content={html} />))
     }
 
     render () {

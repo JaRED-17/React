@@ -7,19 +7,18 @@ import PopupHandler from '../PopupHandler';
 import Routes from '../Routes';
 
 class App extends React.Component {
-  render() {
-
-    return (
-      <div className="App">
-        <Header />
-        <Content />
-        <Footer />
-        <Preloader />
-        <PopupHandler />
-        <Routes />
-      </div>
-    );
-  }
+    render () {
+        return (
+            <div className="App">
+                <Header />
+                <Content />
+                <Footer />
+                <Preloader />
+                <PopupHandler />
+                <Routes />
+            </div>
+        );
+    }
 }
 
 export default App;
