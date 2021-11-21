@@ -10,7 +10,7 @@ class Gamenews extends React.Component {
     };
 
     get news () {
-        Core.News().then((html) => {
+        return Core.News().then((html) => {
             this.setState({
                 isLoading: false,
                 content: html
@@ -34,7 +34,7 @@ class Gamenews extends React.Component {
     get newsContent () {
         return typeof this.state.content === 'string'
             ? this.content(<News content={this.state.content} />)
-            : this.content(this.state.content.map(html => <News content={html} />))
+            : this.content(this.state.content.map(html => html ? <News content={html} /> : null))
     }
 
     render () {
