@@ -7,6 +7,9 @@ class Core extends React.Component {
     static News = function () {
         return News.news()
     }
+    static allNews = function () {
+        return News.allNews()
+    }
     /* User */
     static Login = function () {
         return User.login()
