@@ -1,7 +1,8 @@
 import React from "react";
 
 class News extends React.Component {
-    static news = function (newsName) {
+
+    static news = (newsName) => {
         const newsPath = newsName ? `media/news/${newsName}.html` : 'media/news/15.02.html'
 
         return fetch(newsPath).then((response) => {
@@ -10,7 +11,8 @@ class News extends React.Component {
             return html;
         });
     }
-    static allNews = function () {
+
+    static allNews = () => {
         let newsNames = ['15.02', '02.07'];
 
         return Promise.all(this.combineRequests(this.news, newsNames)).then(allResponses => allResponses)
