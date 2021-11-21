@@ -1,20 +1,27 @@
 import React from 'react';
-import {Router, Route } from 'react-router';
-import { createBrowserHistory } from 'history';
+import { Switch, Route } from 'react-router-dom'
 import Login from '../Login';
 import Register from '../Register';
-
-const history = createBrowserHistory();
+import { observer } from "mobx-react"
+import PopupStore from "../../store";
 
 class Routes extends React.Component {
-    render () {
+
+    get content () {
         return (
-            <Router history={history}>
-                <Route path="/login" component={Login} />
-                <Route path="/Register" component={Register} />
-            </Router>
+            <Switch>
+                <Route path="/" component={<p>ytutyu</p>} />
+                <Route path="/login" component={Login} exact />
+                <Route path="/register" component={Register} exact />
+            </Switch>
         )
+    }
+
+    render () {
+        const { isPopupOpen } = PopupStore;
+
+        return isPopupOpen ? this.content : null;
     }
 }
 
-export default Routes;
+export default observer(Routes);

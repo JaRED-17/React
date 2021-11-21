@@ -3,8 +3,7 @@ import Popup from '../Popup';
 import LoginForm from '../LoginForm';
 
 class Login extends React.Component {
-
-    render() {
+    render () {
         return (
             <Popup>
                 <LoginForm />
