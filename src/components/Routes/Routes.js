@@ -10,7 +10,6 @@ class Routes extends React.Component {
     get content () {
         return (
             <Switch>
-                <Route path="/" component={<p>ytutyu</p>} />
                 <Route path="/login" component={Login} exact />
                 <Route path="/register" component={Register} exact />
             </Switch>

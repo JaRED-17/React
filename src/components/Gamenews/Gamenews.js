@@ -9,19 +9,16 @@ class Gamenews extends React.Component {
         content: ''
     };
 
-    news = () => Core.News().then(html => {
+    updateState = (loading, content) => {
         this.setState({
-            isLoading: false,
-            content: html
+            isLoading: loading,
+            content: content
         })
-    })
+    }
 
-    allNews = () => Core.allNews().then(allNews => {
-        this.setState({
-            isLoading: false,
-            content: allNews
-        })
-    })
+    news = () => Core.News().then(html => this.updateState(false, html))
+
+    allNews = () => Core.allNews().then(allNews => this.updateState(false, allNews))
 
     content = (News) => <div className="Gamenews">{News}</div>
 
