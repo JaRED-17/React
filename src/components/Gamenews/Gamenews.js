@@ -20,7 +20,7 @@ class Gamenews extends React.Component {
 
     allNews = () => Core.allNews().then(allNews => this.updateState(false, allNews))
 
-    content = (News) => <div className="Gamenews">{News}</div>
+    content = News => <div className="Gamenews">{News}</div>
 
     get newsContent () {
         return typeof this.state.content === 'string'
@@ -29,7 +29,7 @@ class Gamenews extends React.Component {
     }
 
     render () {
-        const {isLoading} = this.state;
+        const { isLoading } = this.state;
         // eslint-disable-next-line no-unused-expressions
         isLoading ? this.allNews() : null;
         return isLoading ? this.content() : this.newsContent;

@@ -5,21 +5,14 @@ import Button from "../Button";
 
 class LoginForm extends React.Component {
 
-    login () {
+    login = () => Core.Login().then(response => console.log(response))
 
-        Core.Login().then((response) => {
-            console.log(response)
-        })
-    }
-
-    register () {
+    register = () => {
         PopupStore.openPopup()
-        Core.Register().then((response) => {
-            console.log(response)
-        })
+        Core.Register().then(response => console.log(response))
     }
 
-    render() {
+    render () {
         return (
             <div className='LoginForm'>
                 <div className="Form">

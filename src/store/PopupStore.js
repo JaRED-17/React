@@ -3,7 +3,7 @@ import { makeObservable, observable, action } from "mobx";
 class PopupStore {
     isPopupOpen = false;
 
-    constructor() {
+    constructor () {
         makeObservable(this, {
             isPopupOpen: observable,
             openPopup: action.bound,
@@ -11,11 +11,11 @@ class PopupStore {
         });
     }
   
-    openPopup() {
+    openPopup () {
         this.isPopupOpen = true;
     }
 
-    closePopup() {
+    closePopup () {
         this.isPopupOpen = false;
     }
 }

@@ -4,17 +4,17 @@ class Preloader extends React.Component {
 
     state = {isLoading: true};      
 
-    componentDidMount() {
+    componentDidMount () {
         setTimeout(() => {            
             this.setState({isLoading: false});
         }, 1500);
     }
 
-    get content() {
+    get content () {
         return <div className="Preloader"></div>
     }
 
-    render() {
+    render () {
         const { isLoading } = this.state;
 
         return isLoading ? this.content : null;

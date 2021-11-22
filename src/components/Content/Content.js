@@ -3,7 +3,7 @@ import Sidebanner from '../Sidebanner';
 import Gamenews from '../Gamenews';
 
 class Content extends React.Component {
-    render() {
+    render () {
         return (
             <div className="Content">
                 <Sidebanner class='left' />

@@ -1,7 +1,7 @@
 import React from "react";
 
 class Sidebanner extends React.Component {
-    render() {
+    render () {
         return (
             <div className={`Sidebanner ${this.props.class}`}></div>
         );

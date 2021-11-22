@@ -5,7 +5,7 @@ import PopupStore from "../../store"
 
 class Popup extends React.Component {
 
-    get content() {
+    get content () {
         const { children } = this.props;
 
         return (
@@ -18,7 +18,7 @@ class Popup extends React.Component {
         );
     }
     
-    render() {
+    render () {
         const { isPopupOpen } = PopupStore;
 
         return isPopupOpen ? this.content : null;

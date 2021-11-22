@@ -13,7 +13,7 @@ class PopupHandler extends React.Component {
         )
     }
 
-    render() {
+    render () {
         return this.content
     }
 }

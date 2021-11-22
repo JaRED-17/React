@@ -12,7 +12,7 @@ class Header extends React.Component {
         history.push(`/${path}`);
     }
 
-    render() {
+    render () {
         const { isPopupOpen } = PopupStore;
 
         return (
