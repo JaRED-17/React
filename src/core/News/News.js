@@ -5,11 +5,7 @@ class News extends React.Component {
     static news = (newsName) => {
         const newsPath = newsName ? `media/news/${newsName}.html` : 'media/news/15.02.html'
 
-        return fetch(newsPath).then((response) => {
-            return response.status === 200 ? response.text() : ''
-        }).then((html) => {
-            return html;
-        });
+        return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => html)
     }
 
     static allNews = () => {
@@ -20,15 +16,7 @@ class News extends React.Component {
 
     // HELPERS
 
-    static combineRequests = (callback, requests) => {
-        let combinedRequests = [];
-
-        requests.forEach(request => {
-            combinedRequests.push(callback(request))
-        });
-
-        return combinedRequests
-    }
+    static combineRequests = (callback, requests) => requests.map(request => callback(request))
 }
 
 export default News;
