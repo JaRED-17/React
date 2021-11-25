@@ -14,7 +14,7 @@ class Header extends React.Component {
         return (
             <div className="Header">
                 <div className="Logo">
-                      <h1>Game news</h1>
+                      <h1><a href='/'>Game news</a></h1>
                 </div>
                 <div className="Buttons">
                     <Button className="primary" name="Login" handleClick={() => this.clickHandler('login')} />
