@@ -6,7 +6,7 @@ class Button extends React.Component {
 
         return (
             <button 
-                className='waves-effect waves-light btn'
+                className='button waves-effect waves-light btn'
                 onClick={handleClick}
             >
                 {this.props.name}

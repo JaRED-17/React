@@ -1,18 +1,5 @@
 .button {
-    width: max-content;
-    padding: 10px 20px;
-    border: 1px solid transparent;
     margin: 5px 10px;
-    text-transform: uppercase;
-    border-radius: 5px;
-
-    &:hover {
-        background-color: #2bbbad;
-        cursor: pointer;
-    }
-    &:focus {
-        outline: none;
-    }
 }
 
 .primary {
