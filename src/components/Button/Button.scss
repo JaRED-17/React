@@ -1,11 +1,13 @@
 .button {
     width: max-content;
     padding: 10px 20px;
-    border: 1px solid black;
+    border: 1px solid transparent;
     margin: 5px 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
 
     &:hover {
-        background: $main;
+        background-color: #2bbbad;
         cursor: pointer;
     }
     &:focus {
@@ -14,15 +16,15 @@
 }
 
 .primary {
-    color: #ff0000;
-    background-color: #00ff00;
-    border-color: #0000ff;
+    color: #fff;
+    background-color: #26a69a;
+    
 }
   
 .secondary {
-    color: #00ff00;
-    background-color: #0000ff;
-    border-color: #ff0000;
+    color: #fff;
+    background-color: #26a69a;
+    border: 1px solid #26a69a;
 }
 
 .close {

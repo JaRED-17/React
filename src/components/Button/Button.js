@@ -5,9 +5,6 @@ class Button extends React.Component {
         const { className, handleClick } = this.props
         const classes = `button ${className}`
 
-        console.log(className)
-        console.log(handleClick)
-
         return (
             <button 
                 className={classes}
