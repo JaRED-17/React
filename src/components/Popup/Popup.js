@@ -2,8 +2,14 @@ import React from "react";
 import Button from "../Button";
 import { observer } from "mobx-react"
 import PopupStore from "../../store"
+import { withRouter } from "react-router-dom";
 
 class Popup extends React.Component {
+
+    onClose = () => {
+        PopupStore.closePopup()
+        this.props.history.goBack()
+    }
 
     get content () {
         const { children } = this.props;
@@ -11,7 +17,7 @@ class Popup extends React.Component {
         return (
             <div className='Popup'>
                 <div className='header'>
-                    <Button className="close" name="Close" handleClick={PopupStore.closePopup} />
+                    <Button className="close" name="Close" handleClick={this.onClose} />
                 </div>
                 <div className='content'>{children}</div>
             </div>
@@ -25,4 +31,4 @@ class Popup extends React.Component {
     }
 }
 
-export default observer(Popup);
+export default observer(withRouter(Popup));
