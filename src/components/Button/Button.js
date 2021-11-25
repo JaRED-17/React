@@ -2,12 +2,11 @@ import React from "react";
 
 class Button extends React.Component {
     render () {
-        const { className, handleClick } = this.props
-        const classes = `button ${className}`
+        const { handleClick } = this.props
 
         return (
             <button 
-                className={classes}
+                className='waves-effect waves-light btn'
                 onClick={handleClick}
             >
                 {this.props.name}
