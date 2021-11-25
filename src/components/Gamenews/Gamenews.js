@@ -20,7 +20,7 @@ class Gamenews extends React.Component {
 
     allNews = () => Core.allNews().then(allNews => this.updateState(false, allNews))
 
-    content = News => <div className="Gamenews">{News}</div>
+    content = News => <div className="Gamenews row">{News}</div>
 
     get newsContent () {
         return typeof this.state.content === 'string'

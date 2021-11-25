@@ -9,7 +9,7 @@ class News extends React.Component {
     }
 
     static allNews = () => {
-        let newsNames = ['15.02', '02.07'];
+        let newsNames = ['15.02', '16.02', '01.05', '02.07', '25.11'];
 
         return Promise.all(this.combineRequests(this.news, newsNames)).then(allResponses => allResponses)
     }
