@@ -2,10 +2,17 @@ import React from "react";
 
 class Button extends React.Component {
     render () {
-        const classes = `button ${this.props.className}`
+        const { className, handleClick } = this.props
+        const classes = `button ${className}`
+
+        console.log(className)
+        console.log(handleClick)
 
         return (
-            <button className={classes} onClick={this.props.handleClick}>
+            <button 
+                className={classes}
+                onClick={handleClick}
+            >
                 {this.props.name}
             </button>
         );
