@@ -1,4 +1,5 @@
-// .News {
-//     margin: 10px;
-//     border: 1px solid black;
-// }
+.News {
+    .card-content p:first-child {
+        margin-bottom: 1.2rem;
+    }
+}
