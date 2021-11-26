@@ -10,10 +10,20 @@
                 margin-bottom: 1.2rem;
             }
         }
-        &.horizontal .card-image {
-            padding: 10px;
-            display: flex;
-            align-items: center;
+        &.horizontal {
+            .card-image {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+
+                @include media-md {
+                    max-width: 100%
+                }
+            }
+
+            @include media-md {
+                flex-direction: column;
+            }
         }
         &-stacked {
             padding: 10px;

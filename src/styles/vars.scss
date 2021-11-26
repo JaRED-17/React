@@ -3,8 +3,44 @@ $background: #e6dfdf;
 
 /* Media */
 
+$size-xl: 1920px;
+$size-lg: 1440px;
+$size-md: 1024px;
+$size-sm: 767px;
+$size-xs: 480px;
+
 @mixin tablet {
     @media (max-width: 768px) {
-      @content;
+        @content;
+    }
+}
+@mixin media-xl {
+    @media (max-width: $size-xl) {
+        @content;
+    }
+}
+@mixin media-lg {
+    @media (max-width: $size-lg) {
+        @content;
+    }
+}
+@mixin media-md {
+    @media (max-width: $size-md) {
+        @content;
+    }
+}
+@mixin media-sm-landscape {
+    @media (max-width: $size-sm) and (orientation: landscape) {
+        @content;
+    }
+}
+@mixin media-sm {
+    @media (max-width: $size-sm) {
+        @content;
+    }
+}
+@mixin media-xs {
+    @media (max-width: $size-xs) {
+        @content;
     }
 }
