@@ -1,7 +1,7 @@
 .Gamenews {
     width: calc(100% - 400px);
 
-    @include tablet {
+    @include media-sm {
         width: calc(100% - 200px);
     }
 }

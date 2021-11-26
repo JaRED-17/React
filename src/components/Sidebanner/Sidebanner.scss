@@ -2,7 +2,7 @@
     width: 200px;
     height: 100%;
 
-    @include tablet {
+    @include media-sm {
         &.left {
             display: none;
         } 

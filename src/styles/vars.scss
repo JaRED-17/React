@@ -9,11 +9,6 @@ $size-md: 1024px;
 $size-sm: 767px;
 $size-xs: 480px;
 
-@mixin tablet {
-    @media (max-width: 768px) {
-        @content;
-    }
-}
 @mixin media-xl {
     @media (max-width: $size-xl) {
         @content;
