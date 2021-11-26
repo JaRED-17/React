@@ -8,7 +8,7 @@ class Popup extends React.Component {
 
     onClose = () => {
         PopupStore.closePopup()
-        this.props.history.goBack()
+        this.props.history.push('/')
     }
 
     get content () {
