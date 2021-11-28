@@ -8,6 +8,7 @@ class RegistrationForm extends React.Component {
     render () {
         return (
             <div className='RegistrationForm'>
+                <h3>Registration</h3>
                 <div className="Form">
                     <label>Login</label>
                     <input type="text"/>
