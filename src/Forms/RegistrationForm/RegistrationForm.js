@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 
 class RegistrationForm extends React.Component {
 
-    register = () => console.log('register')
+    registration = () => console.log('registration')
 
     render () {
         return (
@@ -16,7 +16,7 @@ class RegistrationForm extends React.Component {
                 </div>
 
                 <div className="Buttons">
-                    <Button className="secondary" name="Registration" handleClick={this.register} />
+                    <Button className="secondary" name="Registration" handleClick={this.registration} />
                 </div>
             </div>
 
