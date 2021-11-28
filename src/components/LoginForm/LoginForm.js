@@ -1,16 +1,13 @@
 import React from "react";
-import PopupStore from "../../store";
 import Core from "../../core/Core";
 import Button from "../Button";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
     login = () => Core.Login().then(response => console.log(response))
 
-    register = () => {
-        PopupStore.openPopup()
-        Core.Register().then(response => console.log(response))
-    }
+    registration = () => this.props.history.push('/registration');
 
     render () {
         return (
@@ -24,7 +21,7 @@ class LoginForm extends React.Component {
 
                 <div className="Buttons">
                     <Button className="primary" name="Login" handleClick={this.login} />
-                    <Button className="secondary" name="Registration" handleClick={this.register} />
+                    <Button className="secondary" name="Registration" handleClick={this.registration} />
                 </div>
             </div>
 
@@ -32,4 +29,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

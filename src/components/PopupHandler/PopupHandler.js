@@ -1,6 +1,6 @@
 import React from "react";
 import Login from '../Login';
-import Register from '../Register';
+import Registration from '../Registration';
 
 class PopupHandler extends React.Component {
 
@@ -8,7 +8,7 @@ class PopupHandler extends React.Component {
         return (
             <div className='Popups'>
                 <Login />
-                <Register />
+                <Registration />
             </div>
         )
     }

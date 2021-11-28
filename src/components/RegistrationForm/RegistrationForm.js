@@ -1,13 +1,13 @@
 import React from "react";
 import Button from "../Button";
 
-class RegisterForm extends React.Component {
+class RegistrationForm extends React.Component {
 
     register = () => console.log('register')
 
     render () {
         return (
-            <div className='RegisterForm'>
+            <div className='RegistrationForm'>
                 <div className="Form">
                     <label>Login</label>
                     <input type="text"/>
@@ -24,4 +24,4 @@ class RegisterForm extends React.Component {
     }
 }
 
-export default RegisterForm;
+export default RegistrationForm;

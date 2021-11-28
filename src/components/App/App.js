@@ -4,7 +4,6 @@ import Content from '../Content';
 import Footer from '../Footer';
 import Preloader from '../Preloader';
 import PopupHandler from '../PopupHandler';
-import Routes from '../Routes';
 
 class App extends React.Component {
     render () {
@@ -15,7 +14,6 @@ class App extends React.Component {
                 <Footer />
                 <Preloader />
                 <PopupHandler />
-                <Routes />
             </div>
         );
     }

@@ -9,7 +9,7 @@ class Core extends React.Component {
 
     /* User */
     static Login = () => User.login()
-    static Register = () => User.register()
+    static Registration = () => User.registration()
 }
 
 export default Core;

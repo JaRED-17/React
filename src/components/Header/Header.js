@@ -18,7 +18,7 @@ class Header extends React.Component {
                 </div>
                 <div className="Buttons">
                     <Button className="primary" name="Login" handleClick={() => this.clickHandler('login')} />
-                    <Button className="secondary" name="Registration" handleClick={() => this.clickHandler('register')} />
+                    <Button className="secondary" name="Registration" handleClick={() => this.clickHandler('registration')} />
                 </div>
             </div>
         );
