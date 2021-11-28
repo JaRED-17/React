@@ -1,6 +1,6 @@
 import React from "react";
 import Popup from '../Popup';
-import RegistrationForm from '../RegistrationForm';
+import RegistrationForm from '../../Forms/RegistrationForm';
 
 class Registration extends React.Component {
     render () {

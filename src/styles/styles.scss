@@ -11,8 +11,8 @@
 @import '../components/Sidebanner/Sidebanner.scss';
 @import '../components/Popup/Popup.scss';
 @import '../components/Preloader/Preloader.scss';
-@import '../components/LoginForm/LoginForm.scss';
-@import '../components/RegistrationForm/RegistrationForm.scss';
+@import 'src/Forms/LoginForm/LoginForm.scss';
+@import 'src/Forms/RegistrationForm/RegistrationForm.scss';
 
 /* Common */
 @import '../index.scss';

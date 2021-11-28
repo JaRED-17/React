@@ -1,6 +1,6 @@
 import React from "react";
 import Core from "../../core/Core";
-import Button from "../Button";
+import Button from "../../components/Button";
 import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
@@ -24,7 +24,6 @@ class LoginForm extends React.Component {
                     <Button className="secondary" name="Registration" handleClick={this.registration} />
                 </div>
             </div>
-
         )
     }
 }
