@@ -5,7 +5,12 @@ class News extends React.Component {
     static news = (newsDateCreation) => {
         const newsPath = newsDateCreation ? `media/news/${newsDateCreation}.html` : 'media/news/15.02.html'
 
-        return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => html)
+        return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => {
+            return {
+                newsHtml: html,
+                newsDateCreation: newsDateCreation
+            }
+        })
     }
 
     static allNews = () => {
