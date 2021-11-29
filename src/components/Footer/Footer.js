@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 class Footer extends React.Component {
     render () {
@@ -13,10 +14,10 @@ class Footer extends React.Component {
                         <div class="col l4 offset-l2 s12">
                             <h5 class="white-text">Links</h5>
                             <ul>
-                                <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
-                                <li><a class="grey-text text-lighten-3" href="/news">News</a></li>
-                                <li><a class="grey-text text-lighten-3" href="/reviews">Reviews</a></li>
-                                <li><a class="grey-text text-lighten-3" href="/articles">Articles</a></li>
+                                <li><Link className='grey-text text-lighten-3' to={"/"}>Home</Link></li>
+                                <li><Link className='grey-text text-lighten-3' to={"/news"}>News</Link></li>                              
+                                <li><Link className='grey-text text-lighten-3' to={"/reviews"}>Reviews</Link></li>
+                                <li><Link className='grey-text text-lighten-3' to={"/articles"}>Articles</Link></li>
                             </ul>
                         </div>
                     </div>
