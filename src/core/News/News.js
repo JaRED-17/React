@@ -2,16 +2,16 @@ import React from "react";
 
 class News extends React.Component {
 
-    static news = (newsName) => {
-        const newsPath = newsName ? `media/news/${newsName}.html` : 'media/news/15.02.html'
+    static news = (newsDateCreation) => {
+        const newsPath = newsDateCreation ? `media/news/${newsDateCreation}.html` : 'media/news/15.02.html'
 
         return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => html)
     }
 
     static allNews = () => {
-        let newsNames = ['15.02', '16.02', '01.05', '02.07', '25.11'];
+        let newsDateCreationList = ['15.02', '16.02', '01.05', '02.07', '25.11'];
 
-        return Promise.all(this.combineRequests(this.news, newsNames)).then(allResponses => allResponses)
+        return Promise.all(this.combineRequests(this.news, newsDateCreationList)).then(allResponses => allResponses)
     }
 
     // HELPERS

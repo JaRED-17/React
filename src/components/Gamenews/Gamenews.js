@@ -16,7 +16,7 @@ class Gamenews extends React.Component {
         })
     }
 
-    news = () => Core.News().then(html => this.updateState(false, html))
+    news = (newsDateCreation = null) => Core.News(newsDateCreation).then(html => this.updateState(false, html))
 
     allNews = () => Core.allNews().then(allNews => this.updateState(false, allNews))
 
@@ -30,10 +30,10 @@ class Gamenews extends React.Component {
 
     render () {
         const { isLoading } = this.state;
-        const { allNews } = this.props;
+        const { allNews, newsDateCreation } = this.props;
         
         // eslint-disable-next-line no-unused-expressions
-        isLoading ? allNews ? this.allNews() : this.news() : null;
+        isLoading ? allNews ? this.allNews() : this.news(newsDateCreation) : null;
         return isLoading ? this.content() : this.newsContent;
     }
 }

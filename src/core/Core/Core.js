@@ -4,12 +4,12 @@ import User from '../User';
 
 class Core extends React.Component {
     /* News */
-    static News = () => News.news()
-    static allNews = () => News.allNews()
+    static News = (newsDateCreation) => News.news(newsDateCreation);
+    static allNews = () => News.allNews();
 
     /* User */
-    static Login = () => User.login()
-    static Registration = () => User.registration()
+    static Login = () => User.login();
+    static Registration = () => User.registration();
 }
 
 export default Core;
