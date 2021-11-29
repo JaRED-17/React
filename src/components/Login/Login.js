@@ -1,6 +1,6 @@
 import React from "react";
 import Popup from '../Popup';
-import LoginForm from '../../Forms/LoginForm';
+import LoginForm from '../../forms/LoginForm';
 
 class Login extends React.Component {
     render () {
