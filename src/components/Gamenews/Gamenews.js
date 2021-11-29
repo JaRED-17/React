@@ -26,8 +26,8 @@ class Gamenews extends React.Component {
         const { content } = this.state;
 
         return typeof content.newsHtml === 'string'
-            ? this.content(<News content={content.newsHtml} newsDateCreation={content.newsDateCreation} />)
-            : this.content(content.map(currentNews => currentNews.newsHtml ? <News content={currentNews.newsHtml} newsDateCreation={currentNews.newsDateCreation} /> : null))
+            ? this.content(<News content={content.newsHtml} horizontal={false} newsDateCreation={content.newsDateCreation} />)
+            : this.content(content.map(currentNews => currentNews.newsHtml ? <News content={currentNews.newsHtml} horizontal={true} newsDateCreation={currentNews.newsDateCreation} /> : null))
     }
 
     render () {

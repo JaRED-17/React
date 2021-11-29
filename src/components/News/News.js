@@ -5,8 +5,7 @@ import NewsLink from "../NewsLink";
 
 class News extends React.Component {
     render () {
-        const horizontal = true;
-        const { content, newsDateCreation } = this.props;
+        const { content, horizontal, newsDateCreation } = this.props;
 
         return (
             <div className="News col s12">
