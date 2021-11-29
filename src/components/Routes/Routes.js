@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 
 /* Pages */
-import HomePage from '../../Pages/HomePage';
-import LoginPage from '../../Pages/LoginPage';
-import RegistrationPage from '../../Pages/RegistrationPage';
+import HomePage from '../../pages/HomePage';
+import LoginPage from '../../pages/LoginPage';
+import RegistrationPage from '../../pages/RegistrationPage';
 
 class Routes extends React.Component {
     render () {
