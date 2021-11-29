@@ -15,5 +15,5 @@ app.use(
 );
 
 app.listen(PORT, function () {
-    console.log('Server has been started on port',PORT);
+    console.log(`Server has been started on http://localhost:${PORT}`);
 });
