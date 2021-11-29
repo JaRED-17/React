@@ -7,7 +7,7 @@ class HomePage extends React.Component {
         return (
             <>
                 <Sidebanner class='left' />
-                <Gamenews />
+                <Gamenews allNews={true} />
                 <Sidebanner class='rigth' />
             </>
         )

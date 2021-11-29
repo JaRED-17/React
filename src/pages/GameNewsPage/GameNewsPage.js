@@ -1,8 +1,9 @@
 import React from "react";
+import Gamenews from "../../components/Gamenews";
 
 class GameNewsPage extends React.Component {
     render () {
-        return <h3>GameNewsPage</h3>
+        return <Gamenews allNews={false} />
     }
 }
 

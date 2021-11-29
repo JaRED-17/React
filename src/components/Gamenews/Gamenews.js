@@ -30,8 +30,10 @@ class Gamenews extends React.Component {
 
     render () {
         const { isLoading } = this.state;
+        const { allNews } = this.props;
+        
         // eslint-disable-next-line no-unused-expressions
-        isLoading ? this.allNews() : null;
+        isLoading ? allNews ? this.allNews() : this.news() : null;
         return isLoading ? this.content() : this.newsContent;
     }
 }
