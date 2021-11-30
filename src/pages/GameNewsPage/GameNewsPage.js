@@ -25,7 +25,7 @@ class GameNewsPage extends React.Component {
     render () {
         const { urlParams } = this;
 
-        return urlParams ? <GameNews allNews={false} newsDateCreation={urlParams.date || '01.05'}/> : null
+        return urlParams ? <GameNews allNews={false} newsDateCreation={urlParams.date || '01.05.2021'}/> : null
     }
 }
 

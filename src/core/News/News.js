@@ -3,7 +3,7 @@ import React from "react";
 class News extends React.Component {
 
     static news = (date) => {
-        const newsPath = date ? `media/news/${date}.html` : 'media/news/15.02.html'
+        const newsPath = date ? `media/news/${date}.html` : 'media/news/15.02.2021.html'
 
         return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => {
             return {
@@ -14,7 +14,7 @@ class News extends React.Component {
     }
 
     static allNews = () => {
-        let newsDateCreationList = ['15.02', '16.02', '01.05', '02.07', '25.11'];
+        let newsDateCreationList = ['15.02.2021', '16.02.2021', '01.05.2021', '02.07.2021', '25.11.2021'];
 
         return Promise.all(this.combineRequests(this.news, newsDateCreationList)).then(allResponses => allResponses)
     }
