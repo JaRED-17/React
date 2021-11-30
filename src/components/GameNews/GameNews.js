@@ -2,7 +2,7 @@ import React from "react";
 import News from "../News"
 import Core from '../../core/Core'
 
-class Gamenews extends React.Component {
+class GameNews extends React.Component {
 
     state = {
         isLoading: true,
@@ -20,7 +20,7 @@ class Gamenews extends React.Component {
 
     allNews = () => Core.allNews().then(response => this.updateState(false, response))
 
-    content = News => <div className="Gamenews row">{News}</div>
+    content = News => <div className="GameNews row">{News}</div>
 
     get newsContent () {
         const { content } = this.state;
@@ -40,4 +40,4 @@ class Gamenews extends React.Component {
     }
 }
 
-export default Gamenews;
+export default GameNews;

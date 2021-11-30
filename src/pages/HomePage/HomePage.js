@@ -1,13 +1,13 @@
 import React from "react";
 import Sidebanner from "../../components/Sidebanner";
-import Gamenews from "../../components/Gamenews";
+import GameNews from "../../components/GameNews";
 
 class HomePage extends React.Component {
     render () {
         return (
             <>
                 <Sidebanner class='left' />
-                <Gamenews allNews={true} />
+                <GameNews allNews={true} />
                 <Sidebanner class='rigth' />
             </>
         )

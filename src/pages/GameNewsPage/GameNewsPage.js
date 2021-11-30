@@ -1,5 +1,5 @@
 import React from "react";
-import Gamenews from "../../components/Gamenews";
+import GameNews from "../../components/GameNews";
 
 class GameNewsPage extends React.Component {
 
@@ -25,7 +25,7 @@ class GameNewsPage extends React.Component {
     render () {
         const { urlParams } = this;
 
-        return urlParams ? <Gamenews allNews={false} newsDateCreation={urlParams.date || '01.05'}/> : null
+        return urlParams ? <GameNews allNews={false} newsDateCreation={urlParams.date || '01.05'}/> : null
     }
 }
 
