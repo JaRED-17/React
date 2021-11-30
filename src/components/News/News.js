@@ -5,17 +5,17 @@ import NewsLink from "../NewsLink";
 
 class News extends React.Component {
     render () {
-        const { content, horizontal, newsDateCreation } = this.props;
+        const { content, horizontal, date } = this.props;
 
         return (
             <div className="News col s12">
                 <div className="row">
                     <div className="col s12 m12">
                         <div className={`card ${horizontal ? 'horizontal' : '' }`}>
-                            <NewsImage image={`${newsDateCreation}.jpg`} />
+                            <NewsImage image={`${date}.jpg`} />
                             <div className="card-stacked">
                                 <NewsContent content={content} />
-                                <NewsLink link={`/news?newsDataCreation=${newsDateCreation}`} />
+                                <NewsLink link={`/news?date=${date}&id=1`} />
                             </div>
                         </div>
                     </div>

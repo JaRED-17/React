@@ -4,7 +4,7 @@ import User from '../User';
 
 class Core extends React.Component {
     /* News */
-    static News = (newsDateCreation) => News.news(newsDateCreation);
+    static News = (date) => News.news(date);
     static allNews = () => News.allNews();
 
     /* User */

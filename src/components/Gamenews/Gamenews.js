@@ -16,7 +16,7 @@ class Gamenews extends React.Component {
         })
     }
 
-    news = (newsDateCreation = null) => Core.News(newsDateCreation).then(response => this.updateState(false, response))
+    news = (date = null) => Core.News(date).then(response => this.updateState(false, response))
 
     allNews = () => Core.allNews().then(response => this.updateState(false, response))
 
@@ -25,9 +25,9 @@ class Gamenews extends React.Component {
     get newsContent () {
         const { content } = this.state;
 
-        return typeof content.newsHtml === 'string'
-            ? this.content(<News content={content.newsHtml} horizontal={false} newsDateCreation={content.newsDateCreation} />)
-            : this.content(content.map(currentNews => currentNews.newsHtml ? <News content={currentNews.newsHtml} horizontal={true} newsDateCreation={currentNews.newsDateCreation} /> : null))
+        return typeof content.html === 'string'
+            ? this.content(<News content={content.html} horizontal={false} date={content.date} />)
+            : this.content(content.map(currentNews => currentNews.html ? <News content={currentNews.html} horizontal={true} date={currentNews.date} /> : null))
     }
 
     render () {

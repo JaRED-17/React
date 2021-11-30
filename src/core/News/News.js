@@ -2,13 +2,13 @@ import React from "react";
 
 class News extends React.Component {
 
-    static news = (newsDateCreation) => {
-        const newsPath = newsDateCreation ? `media/news/${newsDateCreation}.html` : 'media/news/15.02.html'
+    static news = (date) => {
+        const newsPath = date ? `media/news/${date}.html` : 'media/news/15.02.html'
 
         return fetch(newsPath).then(response => response.status === 200 ? response.text() : '').then(html => {
             return {
-                newsHtml: html,
-                newsDateCreation: newsDateCreation
+                html,
+                date
             }
         })
     }

@@ -4,18 +4,28 @@ import Gamenews from "../../components/Gamenews";
 class GameNewsPage extends React.Component {
 
     get urlParams () {
-        return window.location.search;
-    }
-
-    get newsDateCreation () {
-        const { urlParams } = this;
+        const urlParams =  window.location.search;
         const params = urlParams ? urlParams.replace('?', '') : null;
 
-        return params ? params.split('=')[1] : null;
+        return params ? this.parseUrlParams(params) : null;
+    }
+
+    parseUrlParams = (params) => {
+        const splitParams = params.split('&');
+        let result = {};
+
+        for (let i = 0; i < splitParams.length; i++) {
+            const values = splitParams[i].split('=');
+            result[values[0]] = values[1];
+        }
+
+        return result;
     }
 
     render () {
-        return <Gamenews allNews={false} newsDateCreation={this.newsDateCreation || '01.05'}/>
+        const { urlParams } = this;
+
+        return urlParams ? <Gamenews allNews={false} newsDateCreation={urlParams.date || '01.05'}/> : null
     }
 }
 
