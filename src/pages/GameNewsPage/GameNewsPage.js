@@ -1,4 +1,5 @@
 import React from "react";
+import OneNews from "../../components/OneNews";
 import GameNews from "../../components/GameNews";
 
 class GameNewsPage extends React.Component {
@@ -22,10 +23,24 @@ class GameNewsPage extends React.Component {
         return result;
     }
 
+    content = (urlParams) => {
+        return (
+            <div className='newsPage'>
+                <div className='oneNews'>
+                    <OneNews date={urlParams.date || '01.05.2021'} />
+                </div>
+                <div className='recentNews'>
+                    <h3>Последние новости</h3>
+                    <GameNews allNews={true} />
+                </div>
+            </div>
+        )
+    }
+
     render () {
         const { urlParams } = this;
 
-        return urlParams ? <GameNews allNews={false} newsDateCreation={urlParams.date || '01.05.2021'}/> : null
+        return urlParams ? this.content(urlParams) : null
     }
 }
 
