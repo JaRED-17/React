@@ -1,14 +1,14 @@
 import React from "react";
-import Sidebanner from "../../components/Sidebanner";
+import SideBanner from "../../components/SideBanner";
 import RecentNews from "../../components/RecentNews";
 
 class HomePage extends React.Component {
     render () {
         return (
             <>
-                <Sidebanner class='left' />
+                <SideBanner class='left' />
                 <RecentNews />
-                <Sidebanner class='rigth' />
+                <SideBanner class='rigth' />
             </>
         )
     }
