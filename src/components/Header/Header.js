@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button";
 import { withRouter } from "react-router-dom";
 import PopupStore from "../../store";
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -14,7 +15,7 @@ class Header extends React.Component {
         return (
             <div className="Header">
                 <div className="Logo">
-                      <h1><a href='/'>Game news</a></h1>
+                      <h1><Link to={"/"}>Game news</Link></h1>
                 </div>
                 <div className="Buttons">
                     <Button className="primary" name="Login" handleClick={() => this.clickHandler('login')} />
