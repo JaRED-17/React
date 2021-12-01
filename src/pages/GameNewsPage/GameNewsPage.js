@@ -4,7 +4,7 @@ import GameNews from "../../components/GameNews";
 class GameNewsPage extends React.Component {
 
     get urlParams () {
-        const urlParams =  window.location.search;
+        const urlParams = window.location.search;
         const params = urlParams ? urlParams.replace('?', '') : null;
 
         return params ? this.parseUrlParams(params) : null;
