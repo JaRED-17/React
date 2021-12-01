@@ -6,13 +6,15 @@
 @import '../components/Content/Content.scss';
 @import '../components/Footer/Footer.scss';
 @import '../components/News/News.scss';
-@import 'src/components/GameNews/GameNews';
+@import '../components/GameNews/GameNews';
 @import '../components/Header/Header.scss';
 @import '../components/Sidebanner/Sidebanner.scss';
 @import '../components/Popup/Popup.scss';
 @import '../components/Preloader/Preloader.scss';
-@import 'src/forms/LoginForm/LoginForm.scss';
-@import 'src/forms/RegistrationForm/RegistrationForm.scss';
+
+/* Forms */
+@import '../forms/LoginForm/LoginForm.scss';
+@import '../forms/RegistrationForm/RegistrationForm.scss';
 
 /* Common */
 @import '../index.scss';
