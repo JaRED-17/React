@@ -1,6 +1,6 @@
 import React from "react";
 import OneNews from "../../components/OneNews";
-import GameNews from "../../components/GameNews";
+import RecentNews from "../../components/RecentNews";
 
 class GameNewsPage extends React.Component {
 
@@ -31,7 +31,7 @@ class GameNewsPage extends React.Component {
                 </div>
                 <div className='recentNews'>
                     <h3>Последние новости</h3>
-                    <GameNews allNews={true} />
+                    <RecentNews />
                 </div>
             </div>
         )
