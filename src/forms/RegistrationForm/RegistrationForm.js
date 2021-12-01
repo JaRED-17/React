@@ -17,7 +17,7 @@ class RegistrationForm extends React.Component {
                 </div>
 
                 <div className="Buttons">
-                    <Button className="secondary" name="Registration" handleClick={this.registration} />
+                    <Button className="secondary" name="Registration" onClick={this.registration} />
                 </div>
             </div>
 

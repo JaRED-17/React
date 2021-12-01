@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
-    clickHandler = (path) => {
+    onClick = (path) => {
         PopupStore.openPopup()
         this.props.history.push(`/${path}`);
     }
@@ -18,8 +18,8 @@ class Header extends React.Component {
                       <h1><Link to={"/"}>Game news</Link></h1>
                 </div>
                 <div className="Buttons">
-                    <Button className="primary" name="Login" handleClick={() => this.clickHandler('login')} />
-                    <Button className="secondary" name="Registration" handleClick={() => this.clickHandler('registration')} />
+                    <Button className="primary" name="Login" onClick={() => this.onClick('login')} />
+                    <Button className="secondary" name="Registration" onClick={() => this.onClick('registration')} />
                 </div>
             </div>
         );

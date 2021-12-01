@@ -17,7 +17,7 @@ class Popup extends React.Component {
         return (
             <div className='Popup'>
                 <div className='header'>
-                    <Button className="close" name="Close" handleClick={this.onClose} />
+                    <Button className="close" name="Close" onClick={this.onClose} />
                 </div>
                 <div className='content'>{children}</div>
             </div>
