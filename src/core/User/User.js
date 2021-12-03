@@ -1,6 +1,4 @@
-import React from "react";
-
-class User extends React.Component {
+class User {
 
     static login = () => fetch('login').then(response => response.text())
 

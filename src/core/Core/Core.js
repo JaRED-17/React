@@ -1,8 +1,7 @@
-import React from "react";
 import News from '../News';
 import User from '../User';
 
-class Core extends React.Component {
+class Core {
     /* News */
     static News = (date) => News.news(date);
     static allNews = () => News.allNews();

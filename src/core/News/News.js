@@ -1,6 +1,4 @@
-import React from "react";
-
-class News extends React.Component {
+class News {
 
     static news = (date) => {
         const newsPath = date ? `media/news/${date}.html` : 'media/news/15.02.2021.html'
