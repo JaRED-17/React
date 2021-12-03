@@ -31,7 +31,7 @@ class GameNewsPage extends React.Component {
                 </div>
                 <div className='recentNews'>
                     <h3>Последние новости</h3>
-                    <RecentNews />
+                    <RecentNews skipNews={urlParams.date} />
                 </div>
             </div>
         )
