@@ -1,9 +1,13 @@
 import React from "react";
 import Button from "../../components/Button";
+import Core from "../../core/Core";
+import { withRouter } from "react-router-dom";
 
 class RegistrationForm extends React.Component {
 
-    registration = () => console.log('registration')
+    login = () => this.props.history.push('/login');
+
+    registration = () => Core.Registration().then(response => console.log(response))
 
     render () {
         return (
@@ -19,10 +23,17 @@ class RegistrationForm extends React.Component {
                 <div className="Buttons">
                     <Button className="secondary" name="Registration" onClick={this.registration} />
                 </div>
+
+                <hr/>
+
+                <p>If you have account you can login</p>
+                <div className="Buttons">
+                    <Button className="secondary" name="Login" onClick={this.login} />
+                </div>
             </div>
 
         )
     }
 }
 
-export default RegistrationForm;
+export default  withRouter(RegistrationForm);

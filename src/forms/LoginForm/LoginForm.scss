@@ -5,5 +5,8 @@
         input {
             width: 100%;
         }
+        & + .Buttons {
+            margin-bottom: 1em;
+        }
     }
 }

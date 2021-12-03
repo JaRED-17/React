@@ -22,6 +22,12 @@ class LoginForm extends React.Component {
 
                 <div className="Buttons">
                     <Button className="primary" name="Login" onClick={this.login} />
+                </div>
+
+                <hr/>
+
+                <p>Or you can create a new account</p>
+                <div className="Buttons">
                     <Button className="secondary" name="Registration" onClick={this.registration} />
                 </div>
             </div>
