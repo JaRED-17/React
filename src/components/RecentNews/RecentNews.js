@@ -11,7 +11,11 @@ class RecentNews extends NewsParent {
         const { content } = this.state;
         const { skipNews } = this.props;
 
-        return this.content(content.map(currentNews => currentNews.html && currentNews.date !== skipNews ? <News content={currentNews.html} horizontal={true} date={currentNews.date} /> : null), 'RecentNews')
+        return this.content(content.map(currentNews => {
+            return currentNews.html && currentNews.date !== skipNews
+                ? <News content={currentNews.html} horizontal={true} date={currentNews.date} />
+                : null}),
+            'RecentNews');
     }
 
     render () {
