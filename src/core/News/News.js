@@ -8,7 +8,7 @@ class News {
             headers: {
                 'content-type': 'application/json; charset=UTF-8'
             },
-            body: JSON.stringify({'date': date || '15.02.2021'})
+            body: JSON.stringify({'date': date || defaultValue.date})
         })
             .then(response => response.status === 200 ? response.json() : defaultValue)
             .then(response => response)
