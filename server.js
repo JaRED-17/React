@@ -2,6 +2,7 @@ const express = require('express');
 const webpack = require('webpack');
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 
 const app = express();
@@ -31,6 +32,9 @@ app.use(
     })
 );
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.get("/api/news/allnews", (req, res) => {
     const allNews = getFiles(path.join(__dirname, '/src', '/media/news'));
     let result = [];
@@ -43,6 +47,15 @@ app.get("/api/news/allnews", (req, res) => {
     });
 
     res.send(result);
+});
+
+app.post("/api/news/onenews", (req, res) => {
+    if (!req.body) return {}
+
+    res.send({
+        html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${req.body.date}.html`), 'utf-8'),
+        date: req.body.date
+    });
 });
 
 app.listen(PORT, () => {
