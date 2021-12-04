@@ -4,7 +4,7 @@ import Registration from '../Registration';
 
 class PopupHandler extends React.Component {
 
-    content () {
+    get content () {
         return (
             <div className='Popups'>
                 <Login />

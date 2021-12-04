@@ -13,7 +13,7 @@ class RecentNews extends NewsParent {
 
         return this.content(content.map(currentNews => {
             return currentNews.html && currentNews.date !== skipNews
-                ? <News content={currentNews.html} horizontal={true} date={currentNews.date} />
+                ? <News key={currentNews.date} content={currentNews.html} horizontal={true} date={currentNews.date} />
                 : null}),
             'RecentNews');
     }
