@@ -11,15 +11,7 @@ class News {
         })
     }
 
-    static allNews = () => {
-        return fetch('/api/news/all')
-            .then(response => response.json())
-            .then(newsDateCreationList => Promise.all(this.combineRequests(this.news, newsDateCreationList)).then(allResponses => allResponses))
-    }
-
-    // HELPERS
-
-    static combineRequests = (callback, requests) => requests.map(request => callback(request))
+    static allNews = () => fetch('/api/news/allnews').then(response => response.json()).then(response => response);
 }
 
 export default News;

@@ -31,8 +31,18 @@ app.use(
     })
 );
 
-app.get("/api/news/all", (req, res) => {
-    res.send(getFiles(path.join(__dirname, '/src', '/media/news')))
+app.get("/api/news/allnews", (req, res) => {
+    const allNews = getFiles(path.join(__dirname, '/src', '/media/news'));
+    let result = [];
+
+    allNews.map(news => {
+        result.push({
+            html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}.html`), 'utf-8'),
+            date: news
+        })
+    });
+
+    res.send(result);
 });
 
 app.listen(PORT, () => {
