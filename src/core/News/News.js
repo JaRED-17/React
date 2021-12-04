@@ -1,3 +1,5 @@
+const defaultValue = { date: '15.02.2021', html: '' };
+
 class News {
 
     static news = (date) => {
@@ -7,10 +9,17 @@ class News {
                 'content-type': 'application/json; charset=UTF-8'
             },
             body: JSON.stringify({'date': date || '15.02.2021'})
-        }).then(response => response.json()).then(response => response);
+        })
+            .then(response => response.status === 200 ? response.json() : defaultValue)
+            .then(response => response)
+            .catch(error => console.error(error.message));
     }
 
-    static allNews = () => fetch('/api/news/allnews').then(response => response.json()).then(response => response);
+    static allNews = () => fetch('/api/news/allnews')
+        .then(response => response.status === 200 ? response.json() : [defaultValue])
+        .then(response => response)
+        .catch(error => console.error(error.message));
+
 }
 
 export default News;

@@ -50,7 +50,7 @@ app.get("/api/news/allnews", (req, res) => {
 });
 
 app.post("/api/news/onenews", (req, res) => {
-    if (!req.body) return {}
+    if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
 
     res.send({
         html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${req.body.date}.html`), 'utf-8'),
