@@ -12,9 +12,9 @@ class News {
     }
 
     static allNews = () => {
-        let newsDateCreationList = ['15.02.2021', '16.02.2021', '01.05.2021', '02.07.2021', '25.11.2021'];
-
-        return Promise.all(this.combineRequests(this.news, newsDateCreationList)).then(allResponses => allResponses)
+        return fetch('/api/news/all')
+            .then(response => response.json())
+            .then(newsDateCreationList => Promise.all(this.combineRequests(this.news, newsDateCreationList)).then(allResponses => allResponses))
     }
 
     // HELPERS
