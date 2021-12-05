@@ -2,11 +2,11 @@ import React from "react";
 
 class NewsImage extends React.Component {
     render () {
-        const { image } = this.props;
+        const { image, date } = this.props;
 
         return (
             <div className="card-image">
-                <img src={`media/images/${image}`} alt="logo" />
+                <img src={`media/news/${date}/Images/${image}`} alt="logo" />
             </div>
         )
     }
