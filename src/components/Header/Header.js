@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../Button";
 import { withRouter } from "react-router-dom";
-import PopupStore from "../../store";
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
