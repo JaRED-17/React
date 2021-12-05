@@ -12,7 +12,7 @@ class News extends React.Component {
                 <div className="row">
                     <div className="col s12 m12">
                         <div className={`card ${horizontal ? 'horizontal' : '' }`}>
-                            <NewsImage image={`${date}.jpg`} date={date} />
+                            {type === 'short' ? <NewsImage image={`${date}.jpg`} date={date} /> : null}
                             <div className="card-stacked">
                                 <NewsContent content={content} />
                                 {type === 'short' ? <NewsLink link={`/news?date=${date}&id=1`} /> : null}
