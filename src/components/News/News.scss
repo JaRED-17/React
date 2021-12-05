@@ -33,3 +33,23 @@
         }
     }
 }
+.OneNews {
+    .card {
+        h3 {
+            margin: 0 0 2rem;
+        }
+        &-content {
+            p {
+                padding: 0.5rem 1rem;
+            }
+        }
+        ul {
+            list-style-type: initial;
+
+            li {
+                margin-left: 2rem;
+                list-style-type: initial;
+            }
+        }
+    }
+}
