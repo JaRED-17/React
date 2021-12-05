@@ -12,15 +12,14 @@ const compiler = webpack(config);
 const PORT = process.env.PORT || 3000;
 
 const getFiles = (dir, files_) => {
-
     files_ = files_ || [];
-    var files = fs.readdirSync(dir);
-    for (let i in files){
-        let  name = dir + '/' + files[i];
+    let files = fs.readdirSync(dir);
+
+    for (let i in files) {
+        let name = dir + '/' + files[i];
+
         if (fs.statSync(name).isDirectory()) {
-            getFiles(name, files_);
-        } else {
-            files_.push(path.basename(path.parse(name).name));
+            files_.push(name.match('[0-9]{2}.[0-9]{2}.[0-9]{4}')[0]);
         }
     }
     return files_;
@@ -41,7 +40,7 @@ app.get("/api/news/allnews", (req, res) => {
 
     allNews.map(news => {
         result.push({
-            html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}.html`), 'utf-8'),
+            html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}/Short.html`), 'utf-8'),
             date: news
         })
     });
@@ -53,7 +52,7 @@ app.post("/api/news/onenews", (req, res) => {
     if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
 
     res.send({
-        html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${req.body.date}.html`), 'utf-8'),
+        html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${req.body.date}/Full.html`), 'utf-8'),
         date: req.body.date
     });
 });

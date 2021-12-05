@@ -10,7 +10,7 @@ class OneNews extends NewsParent {
     get newsContent () {
         const { content } = this.state;
 
-        return this.content(<News content={content.html} horizontal={false} date={content.date} />, 'OneNews')
+        return this.content(<News type='full' content={content.html} horizontal={false} date={content.date} />, 'OneNews')
     }
 
     render () {

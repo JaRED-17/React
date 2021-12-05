@@ -5,7 +5,7 @@ import NewsLink from "../NewsLink";
 
 class News extends React.Component {
     render () {
-        const { content, horizontal, date } = this.props;
+        const { content, horizontal, date, type } = this.props;
 
         return (
             <div className="News col s12">
@@ -15,7 +15,7 @@ class News extends React.Component {
                             <NewsImage image={`${date}.jpg`} />
                             <div className="card-stacked">
                                 <NewsContent content={content} />
-                                <NewsLink link={`/news?date=${date}&id=1`} />
+                                {type === 'short' ? <NewsLink link={`/news?date=${date}&id=1`} /> : null}
                             </div>
                         </div>
                     </div>
