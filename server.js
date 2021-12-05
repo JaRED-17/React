@@ -36,16 +36,11 @@ app.use(bodyParser.json());
 
 app.get("/api/news/allnews", (req, res) => {
     const allNews = getFiles(path.join(__dirname, '/src', '/media/news'));
-    let result = [];
 
-    allNews.map(news => {
-        result.push({
-            html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}/Short.html`), 'utf-8'),
-            date: news
-        })
-    });
-
-    res.send(result);
+    res.send(allNews.map(news => ({
+        html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}/Short.html`), 'utf-8'),
+        date: news
+    })));
 });
 
 app.post("/api/news/onenews", (req, res) => {
