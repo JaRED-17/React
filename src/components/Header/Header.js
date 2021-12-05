@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
 
     onClick = (path) => {
-        PopupStore.openPopup()
         this.props.history.push(`/${path}`);
     }
 
