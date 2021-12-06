@@ -21,8 +21,7 @@ class RecentNews extends NewsParent {
     render () {
         const { isLoading } = this.state;
 
-        // eslint-disable-next-line no-unused-expressions
-        isLoading ? this.allNews() : null;
+        if (isLoading) this.allNews();
         return isLoading ? this.content() : this.newsContent;
     }
 }

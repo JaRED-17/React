@@ -17,8 +17,7 @@ class OneNews extends NewsParent {
         const { isLoading } = this.state;
         const { date } = this.props;
 
-        // eslint-disable-next-line no-unused-expressions
-        isLoading ? this.news(date) : null;
+        if (isLoading) this.news(date);
         return isLoading ? this.content() : this.newsContent;
     }
 }
