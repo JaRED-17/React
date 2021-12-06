@@ -1,13 +1,8 @@
+import API from '../API'
+
 const defaultValue = { date: '15.02.2021', html: '' };
 
-class News {
-
-    static fetchData = (url, init, defaultValue) => {
-        return fetch(url, init)
-            .then(response => response.status === 200 ? response.json() : defaultValue)
-            .then(response => response)
-            .catch(error => console.error(error.message));
-    }
+class News extends API {
 
     static news = (date) => {
         return this.fetchData('/api/news/onenews', {
