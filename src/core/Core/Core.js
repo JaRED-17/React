@@ -3,8 +3,8 @@ import User from '../User';
 
 class Core {
     /* Statuses */
-    static newsStatus = News.getStatus();
-    static userStatus = User.getStatus();
+    static newsStatus = () => News.getStatus();
+    static userStatus = () => User.getStatus();
 
     /* News */
     static News = (date) => News.news(date);
