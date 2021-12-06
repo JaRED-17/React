@@ -16,6 +16,12 @@ class API {
     static getErrorMessage = () => this.errorMessage;
     static setErrorMessage = message => this.errorMessage = message;
 
+    static getStatus = () => ({
+        loading: this.getLoading(),
+        error: this.getError(),
+        errorMessage: this.getErrorMessage(),
+    });
+
     static callAPI = (url, init = null, defaultValue = '', type = 'json') => {
         this.setLoading(true);
         this.setError(false);
