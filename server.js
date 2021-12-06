@@ -47,6 +47,14 @@ app.post("/api/news/onenews", (req, res) => {
     });
 });
 
+app.get("/api/user/login", (req, res) => {
+    res.send({success: true});
+});
+
+app.get("/api/user/registration", (req, res) => {
+    res.send({success: true});
+});
+
 app.listen(PORT, () => {
     console.log(`Server has been started on http://localhost:${PORT}`);
 });

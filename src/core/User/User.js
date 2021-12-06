@@ -1,8 +1,10 @@
-class User {
+import API from '../API'
 
-    static login = () => fetch('login').then(response => response.text())
+class User extends API {
 
-    static registration = () => fetch('registration').then(response => response.text())
+    static login = () => this.callAPI('/api/user/login');
+
+    static registration = () => this.callAPI('/api/user/registration');
 }
 
 export default User;

@@ -1,8 +1,14 @@
 class API {
 
-    static fetchData = (url, init, defaultValue) => {
+    static callAPI = (url, init = null, defaultValue = '', type = 'json') => {
         return fetch(url, init)
-            .then(response => response.status === 200 ? response.json() : defaultValue)
+            .then(response => {
+                return response.status === 200
+                    ? type === 'json'
+                        ? response.json()
+                        : response.text()
+                    : defaultValue
+            })
             .then(response => response)
             .catch(error => console.error(error.message));
     }
