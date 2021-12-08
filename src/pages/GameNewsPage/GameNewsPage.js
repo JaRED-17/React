@@ -1,6 +1,7 @@
 import React from "react";
 import OneNews from "../../components/OneNews";
 import RecentNews from "../../components/RecentNews";
+import NewComment from "../../components/NewComment";
 
 class GameNewsPage extends React.Component {
 
@@ -28,6 +29,9 @@ class GameNewsPage extends React.Component {
             <div className='newsPage'>
                 <div className='oneNews'>
                     <OneNews date={urlParams.date || '01.05.2021'} />
+                </div>
+                <div className='NewComment'>
+                    <NewComment />
                 </div>
                 <div className='recentNews'>
                     <h3>Последние новости</h3>
