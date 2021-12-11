@@ -1,5 +1,6 @@
 .LoginForm {
     padding: 10px;
+    min-width: 460px;
 
     .Form {
         input {
@@ -16,5 +17,10 @@
         padding: 10px;
         color: white;
         background-color: red;
+    }
+    .warning {
+        color: red;
+        font-size: 11px;
+        text-align: left;
     }
 }

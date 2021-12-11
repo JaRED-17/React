@@ -1,12 +1,15 @@
 import React from "react";
 import core from "../../core/Core";
 import Button from "../../components/Button";
+import Validation from "../../validation";
 import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
     state = {
-        hasError: false
+        hasError: false,
+        emailHasError: false,
+        passwordHasError: false,
     }
 
     login = (data) => core.user.login.API(data).then(response => {
@@ -15,18 +18,29 @@ class LoginForm extends React.Component {
     })
 
     onSubmit = (event) => {
-        event.preventDefault()
-        this.login({
-            login: event.target.login.value,
-            password: event.target.password.value
-        });
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const emailValidation = Validation.email(email).success;
+        const passwordValidation = Validation.password(password).success;
+
+        this.setState({emailHasError: !emailValidation});
+        this.setState({passwordHasError: !passwordValidation});
+
+        if (!emailValidation || !passwordValidation) {
+            return;
+        }
+
+        this.login({email, password});
     }
 
     registration = () => this.props.history.push('/registration');
 
     render () {
-        const { hasError } = this.state;
+        const { hasError, emailHasError, passwordHasError } = this.state;
         const hidden = hasError ? '' : 'hidden';
+        const hiddenEmail = emailHasError ? '' : 'hidden';
+        const hiddenPassword = passwordHasError ? '' : 'hidden';
 
         return (
             <div className='LoginForm'>
@@ -35,9 +49,11 @@ class LoginForm extends React.Component {
                     <div className={`error ${hidden}`}>Bad credentials</div>
                     <div className="Form">
                         <label>Login</label>
-                        <input type="text" name="login" ref="login" />
+                        <input type="text" name="email" ref="email" />
+                        <div className={`warning ${hiddenEmail}`}>Email must be filled in</div>
                         <label>Password</label>
                         <input type="password" name="password" ref="password" />
+                        <div className={`warning ${hiddenPassword}`}>Password must be filled in</div>
                     </div>
 
                     <div className="Buttons">
