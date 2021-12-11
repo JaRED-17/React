@@ -3,8 +3,8 @@ import API from '../API'
 class User {
 
     constructor () {
-        this._login = new API().constructor;
-        this._registration = new API().constructor;
+        this._login = new API();
+        this._registration = new API();
         this.login = this.login.bind(this);
         this.registration = this.registration.bind(this);
     }

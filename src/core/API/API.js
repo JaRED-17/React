@@ -1,28 +1,38 @@
 class API {
 
-    static loading = false;
-    static error = false;
-    static errorMessage = '';
+    constructor () {
+        this.loading = false;
+        this.error = false;
+        this.errorMessage = '';
+        this.getLoading = this.getLoading.bind(this);
+        this.setLoading = this.setLoading.bind(this);
+        this.getError = this.getError.bind(this);
+        this.setError = this.setError.bind(this);
+        this.getErrorMessage = this.getErrorMessage.bind(this);
+        this.setErrorMessage = this.setErrorMessage.bind(this);
+        this.getStatus = this.getStatus.bind(this);
+        this.call = this.call.bind(this);
+    }
 
     /* loading */
-    static getLoading = () => this.loading;
-    static setLoading = flag => this.loading = flag;
+    getLoading = () => this.loading;
+    setLoading = flag => this.loading = flag;
 
     /* error */
-    static getError = () => this.error;
-    static setError = flag => this.error = flag;
+    getError = () => this.error;
+    setError = flag => this.error = flag;
 
     /* errorMessage */
-    static getErrorMessage = () => this.errorMessage;
-    static setErrorMessage = message => this.errorMessage = message;
+    getErrorMessage = () => this.errorMessage;
+    setErrorMessage = message => this.errorMessage = message;
 
-    static getStatus = () => ({
+    getStatus = () => ({
         loading: this.getLoading(),
         error: this.getError(),
         errorMessage: this.getErrorMessage(),
     });
 
-    static call = (url, init = null, defaultValue = '', type = 'json') => {
+    call = (url, init = null, defaultValue = '', type = 'json') => {
         this.setLoading(true);
         this.setError(false);
         this.setErrorMessage('');

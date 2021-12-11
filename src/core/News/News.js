@@ -5,8 +5,8 @@ const defaultValue = { date: '15.02.2021', html: '' };
 class News {
 
     constructor () {
-        this._news = new API().constructor;
-        this._allNews = new API().constructor;
+        this._news = new API();
+        this._allNews = new API();
         this.news = this.news.bind(this);
         this.allNews = this.allNews.bind(this);
     }
