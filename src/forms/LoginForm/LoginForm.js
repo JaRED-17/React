@@ -5,7 +5,15 @@ import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
-    login = () => core.user.login.API({login: 'user', password: 'password'}).then(response => console.log(response))
+    login = (data) => core.user.login.API(data).then(response => console.log(response))
+
+    onSubmit = (event) => {
+        event.preventDefault()
+        this.login({
+            login: event.target.login.value,
+            password: event.target.password.value
+        });
+    }
 
     registration = () => this.props.history.push('/registration');
 
@@ -13,16 +21,18 @@ class LoginForm extends React.Component {
         return (
             <div className='LoginForm'>
                 <h3>Login</h3>
-                <div className="Form">
-                    <label>Login</label>
-                    <input type="text"/>
-                    <label>Password</label>
-                    <input type="password"/>
-                </div>
+                <form onSubmit={this.onSubmit}>
+                    <div className="Form">
+                        <label>Login</label>
+                        <input type="text" name="login" ref="login" />
+                        <label>Password</label>
+                        <input type="password" name="password" ref="password" />
+                    </div>
 
-                <div className="Buttons">
-                    <Button className="primary" name="Login" onClick={this.login} />
-                </div>
+                    <div className="Buttons">
+                        <Button type="submit" className="primary" name="login" />
+                    </div>
+                </form>
 
                 <hr/>
 
