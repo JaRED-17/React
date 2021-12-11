@@ -1,10 +1,12 @@
 import API from '../API'
 
-const defaultValue = { date: '15.02.2021', html: '' };
-
 class News {
 
     constructor () {
+        this.defaultValue = {
+            date: '15.02.2021',
+            html: ''
+        };
         this._newsByDate = new API();
         this._allNews = new API();
         this.newsByDate = {
@@ -22,10 +24,10 @@ class News {
         headers: {
             'content-type': 'application/json; charset=UTF-8'
         },
-        body: JSON.stringify({'date': date || defaultValue.date})
-    }, defaultValue);
+        body: JSON.stringify({'date': date || this.defaultValue.date})
+    }, this.defaultValue);
 
-    allNews = () => this._allNews.call('/api/news/allnews', null, [defaultValue]);
+    allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue]);
 }
 
 export default News;
