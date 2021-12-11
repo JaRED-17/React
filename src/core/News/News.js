@@ -5,19 +5,19 @@ const defaultValue = { date: '15.02.2021', html: '' };
 class News {
 
     constructor () {
-        this._news = new API();
+        this._newsByDate = new API();
         this._allNews = new API();
-        this.oneNews = {
-            API: this.oneNews.bind(this),
-            status: this._news.getStatus()
+        this.newsByDate = {
+            API: this.newsByDate.bind(this),
+            ...this._newsByDate.getStatus()
         }
         this.allNews = {
             API: this.allNews.bind(this),
-            status: this._allNews.getStatus()
+            ...this._allNews.getStatus()
         }
     }
 
-    oneNews = (date) => this._news.call('/api/news/onenews', {
+    newsByDate = (date) => this._newsByDate.call('/api/news/newsbydate', {
         method: 'POST',
         headers: {
             'content-type': 'application/json; charset=UTF-8'

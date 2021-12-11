@@ -3,14 +3,14 @@ import News from "../News";
 import core from "../../core/Core";
 import NewsParent from "../NewsParent";
 
-class OneNews extends NewsParent {
+class NewsByDate extends NewsParent {
 
-    news = (date = null) => core.news.oneNews.API(date).then(response => this.updateState(core.news.oneNews.status.loading || false, response))
+    news = (date = null) => core.news.newsByDate.API(date).then(response => this.updateState(core.news.newsByDate.loading || false, response))
 
     get newsContent () {
         const { content } = this.state;
 
-        return this.content(<News type='full' content={content.html} horizontal={false} date={content.date} />, 'OneNews')
+        return this.content(<News type='full' content={content.html} horizontal={false} date={content.date} />, 'NewsByDate')
     }
 
     render () {
@@ -22,4 +22,4 @@ class OneNews extends NewsParent {
     }
 }
 
-export default OneNews;
+export default NewsByDate;

@@ -7,11 +7,11 @@ class User {
         this._registration = new API();
         this.login = {
             API: this.login.bind(this),
-            status: this._login.getStatus()
+            ...this._login.getStatus()
         };
         this.registration = {
             API: this.registration.bind(this),
-            status: this._registration.getStatus()
+            ...this._registration.getStatus()
         };
     }
 

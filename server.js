@@ -38,7 +38,7 @@ app.get("/api/news/allnews", (req, res) => {
     })));
 });
 
-app.post("/api/news/onenews", (req, res) => {
+app.post("/api/news/newsbydate", (req, res) => {
     if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
 
     res.send({
