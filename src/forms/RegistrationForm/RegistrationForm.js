@@ -7,7 +7,7 @@ class RegistrationForm extends React.Component {
 
     login = () => this.props.history.push('/login');
 
-    registration = () => core.user.registration().then(response => console.log(response))
+    registration = () => core.user.registration({login: 'user', password: 'password'}).then(response => console.log(response))
 
     render () {
         return (

@@ -9,9 +9,21 @@ class User {
         this.registration = this.registration.bind(this);
     }
 
-    login = () => this._login.call('/api/user/login');
+    login = (data) => this._login.call('/api/user/login', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(data)
+    });
 
-    registration = () => this._registration.call('/api/user/registration');
+    registration = (data) => this._registration.call('/api/user/registration', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(data)
+    });
 }
 
 export default User;

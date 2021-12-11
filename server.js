@@ -47,11 +47,11 @@ app.post("/api/news/onenews", (req, res) => {
     });
 });
 
-app.get("/api/user/login", (req, res) => {
+app.post("/api/user/login", (req, res) => {
     res.send({success: true});
 });
 
-app.get("/api/user/registration", (req, res) => {
+app.post("/api/user/registration", (req, res) => {
     res.send({success: true});
 });
 
