@@ -1,5 +1,4 @@
 import React from "react";
-import Core from "../../core/Core";
 
 class NewsParent extends React.Component {
 
