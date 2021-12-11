@@ -1,10 +1,17 @@
 import API from '../API'
 
-class User extends API {
+class User {
 
-    static login = () => this.callAPI('/api/user/login');
+    constructor () {
+        this._login = new API().constructor;
+        this._registration = new API().constructor;
+        this.login = this.login.bind(this);
+        this.registration = this.registration.bind(this);
+    }
 
-    static registration = () => this.callAPI('/api/user/registration');
+    login = () => this._login.call('/api/user/login');
+
+    registration = () => this._registration.call('/api/user/registration');
 }
 
 export default User;

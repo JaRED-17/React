@@ -8,10 +8,6 @@ class NewsParent extends React.Component {
         content: ''
     };
 
-    get status () {
-        return Core.newsStatus()
-    }
-
     updateState = (loading, content) => {
         this.setState({
             isLoading: loading,

@@ -1,11 +1,11 @@
 import React from "react";
 import News from "../News"
-import Core from "../../core/Core";
+import core from "../../core/Core";
 import NewsParent from "../NewsParent";
 
 class RecentNews extends NewsParent {
 
-    allNews = () => Core.allNews().then(response => this.updateState(this.status.loading || false, response))
+    allNews = () => core.news.allNews().then(response => this.updateState(false, response))
 
     get newsContent () {
         const { content } = this.state;

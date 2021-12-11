@@ -22,7 +22,7 @@ class API {
         errorMessage: this.getErrorMessage(),
     });
 
-    static callAPI = (url, init = null, defaultValue = '', type = 'json') => {
+    static call = (url, init = null, defaultValue = '', type = 'json') => {
         this.setLoading(true);
         this.setError(false);
         this.setErrorMessage('');
