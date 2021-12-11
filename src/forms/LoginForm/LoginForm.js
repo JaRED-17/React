@@ -26,13 +26,13 @@ class LoginForm extends React.Component {
 
     render () {
         const { hasError } = this.state;
-        const classes = hasError ? '' : 'hidden';
+        const hidden = hasError ? '' : 'hidden';
 
         return (
             <div className='LoginForm'>
                 <h3>Login</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className={`error ${classes}`}>Bad credentials</div>
+                    <div className={`error ${hidden}`}>Bad credentials</div>
                     <div className="Form">
                         <label>Login</label>
                         <input type="text" name="login" ref="login" />
