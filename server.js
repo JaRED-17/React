@@ -48,7 +48,13 @@ app.post("/api/news/newsbydate", (req, res) => {
 });
 
 app.post("/api/user/login", (req, res) => {
-    res.send({success: true});
+    if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
+
+    if (req.body.login === 'igor.borozdov@gmail.com' && req.body.password === 'aA123456') {
+        res.send({success: true});
+    } else {
+        res.send({success: false});
+    }
 });
 
 app.post("/api/user/registration", (req, res) => {

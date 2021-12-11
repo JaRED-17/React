@@ -5,7 +5,14 @@ import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
-    login = (data) => core.user.login.API(data).then(response => console.log(response))
+    state = {
+        hasError: false
+    }
+
+    login = (data) => core.user.login.API(data).then(response => {
+        console.log(response);
+        this.setState({hasError: !response.success});
+    })
 
     onSubmit = (event) => {
         event.preventDefault()
@@ -18,10 +25,14 @@ class LoginForm extends React.Component {
     registration = () => this.props.history.push('/registration');
 
     render () {
+        const { hasError } = this.state;
+        const classes = hasError ? '' : 'hidden';
+
         return (
             <div className='LoginForm'>
                 <h3>Login</h3>
                 <form onSubmit={this.onSubmit}>
+                    <div className={`error ${classes}`}>Bad credentials</div>
                     <div className="Form">
                         <label>Login</label>
                         <input type="text" name="login" ref="login" />
