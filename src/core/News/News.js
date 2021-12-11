@@ -7,8 +7,8 @@ class News {
     constructor () {
         this._news = new API();
         this._allNews = new API();
-        this.news = {
-            API: this.news.bind(this),
+        this.oneNews = {
+            API: this.oneNews.bind(this),
             status: this._news.getStatus()
         }
         this.allNews = {
@@ -17,7 +17,7 @@ class News {
         }
     }
 
-    news = (date) => this._news.call('/api/news/onenews', {
+    oneNews = (date) => this._news.call('/api/news/onenews', {
         method: 'POST',
         headers: {
             'content-type': 'application/json; charset=UTF-8'
