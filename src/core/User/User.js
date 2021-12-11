@@ -15,7 +15,7 @@ class User {
         };
     }
 
-    login = (data) => this._login.call('/api/user/login', {
+   getInitData = (data) => ({
         method: 'POST',
         headers: {
             'content-type': 'application/json; charset=UTF-8'
@@ -23,13 +23,9 @@ class User {
         body: JSON.stringify(data)
     });
 
-    registration = (data) => this._registration.call('/api/user/registration', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json; charset=UTF-8'
-        },
-        body: JSON.stringify(data)
-    });
+    login = (data) => this._login.call('/api/user/login', this.getInitData(data));
+
+    registration = (data) => this._registration.call('/api/user/registration', this.getInitData(data));
 }
 
 export default User;
