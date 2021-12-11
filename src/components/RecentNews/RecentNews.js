@@ -5,7 +5,7 @@ import NewsParent from "../NewsParent";
 
 class RecentNews extends NewsParent {
 
-    allNews = () => core.news.allNews().then(response => this.updateState(false, response))
+    allNews = () => core.news.allNews.API().then(response => this.updateState(core.news.allNews.status.loading || false, response))
 
     get newsContent () {
         const { content } = this.state;

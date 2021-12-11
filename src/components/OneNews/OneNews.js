@@ -5,7 +5,7 @@ import NewsParent from "../NewsParent";
 
 class OneNews extends NewsParent {
 
-    news = (date = null) => core.news.news(date).then(response => this.updateState(false, response))
+    news = (date = null) => core.news.news.API(date).then(response => this.updateState(core.news.news.status.loading || false, response))
 
     get newsContent () {
         const { content } = this.state;

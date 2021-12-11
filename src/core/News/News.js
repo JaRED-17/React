@@ -7,8 +7,14 @@ class News {
     constructor () {
         this._news = new API();
         this._allNews = new API();
-        this.news = this.news.bind(this);
-        this.allNews = this.allNews.bind(this);
+        this.news = {
+            API: this.news.bind(this),
+            status: this._news.getStatus()
+        }
+        this.allNews = {
+            API: this.allNews.bind(this),
+            status: this._allNews.getStatus()
+        }
     }
 
     news = (date) => this._news.call('/api/news/onenews', {
