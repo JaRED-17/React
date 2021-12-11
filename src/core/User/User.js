@@ -5,8 +5,14 @@ class User {
     constructor () {
         this._login = new API();
         this._registration = new API();
-        this.login = this.login.bind(this);
-        this.registration = this.registration.bind(this);
+        this.login = {
+            API: this.login.bind(this),
+            status: this._login.getStatus()
+        };
+        this.registration = {
+            API: this.registration.bind(this),
+            status: this._registration.getStatus()
+        };
     }
 
     login = (data) => this._login.call('/api/user/login', {

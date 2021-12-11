@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
 
-    login = () => core.user.login({login: 'user', password: 'password'}).then(response => console.log(response))
+    login = () => core.user.login.API({login: 'user', password: 'password'}).then(response => console.log(response))
 
     registration = () => this.props.history.push('/registration');
 
