@@ -1,4 +1,5 @@
 import React from "react";
+import Comment from "../Comment";
 
 class Comments extends React.Component {
 
@@ -13,12 +14,8 @@ class Comments extends React.Component {
     Comments = () => {
         return (
             <div>
-                <div>
-                    Comment 1
-                </div>
-                <div>
-                    Comment 2
-                </div>
+                <Comment answers={10} content={'Comment 1'}/>
+                <Comment answers={4} content={'Comment 2'}/>
             </div>
         )
     }
