@@ -17,6 +17,8 @@ class LoginForm extends React.Component {
         this.setState({hasError: !response.success});
     })
 
+    registration = () => this.props.history.push('/registration');
+
     onSubmit = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -34,11 +36,9 @@ class LoginForm extends React.Component {
         this.login({email, password});
     }
 
-    registration = () => this.props.history.push('/registration');
-
     render () {
         const { hasError, emailHasError, passwordHasError } = this.state;
-        const hidden = hasError ? '' : 'hidden';
+        const hidden = hasError && !emailHasError && !passwordHasError ? '' : 'hidden';
         const hiddenEmail = emailHasError ? '' : 'hidden';
         const hiddenPassword = passwordHasError ? '' : 'hidden';
 
