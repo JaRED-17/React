@@ -24,21 +24,22 @@ class News {
         }
     }
 
-    newsByDate = (date) => this._newsByDate.call('/api/news/newsbydate', {
+    getInitData = () => ({
         method: 'POST',
         headers: {
             'content-type': 'application/json; charset=UTF-8'
-        },
+        }
+    });
+
+    newsByDate = (date) => this._newsByDate.call('/api/news/newsbydate', {
+        ...this.getInitData(),
         body: JSON.stringify({'date': date || this.defaultValue.date})
     }, this.defaultValue);
 
     allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue]);
 
     lastNNews = (count) => this._allNews.call('/api/news/lastnnews', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json; charset=UTF-8'
-        },
+        ...this.getInitData(),
         body: JSON.stringify(count)
     }, [this.defaultValue]);
 }
