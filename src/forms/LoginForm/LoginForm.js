@@ -2,6 +2,7 @@ import React from "react";
 import core from "../../core/Core";
 import Button from "../../components/Button";
 import Validation from "../../validation";
+import Field from "../../components/Field"
 import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
@@ -48,12 +49,8 @@ class LoginForm extends React.Component {
                 <form onSubmit={this.onSubmit}>
                     <div className={`error ${hidden}`}>Bad credentials</div>
                     <div className="Form">
-                        <label>Login</label>
-                        <input type="text" name="email" ref="email" />
-                        <div className={`warning ${hiddenEmail}`}>Email must be filled in</div>
-                        <label>Password</label>
-                        <input type="password" name="password" ref="password" />
-                        <div className={`warning ${hiddenPassword}`}>Password must be filled in</div>
+                        <Field type={'text'} name={'email'} hidden={hiddenEmail} />
+                        <Field type={'password'} name={'password'} hidden={hiddenPassword} />
                     </div>
 
                     <div className="Buttons">
