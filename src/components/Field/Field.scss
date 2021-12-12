@@ -4,4 +4,7 @@
         font-size: 11px;
         text-align: left;
     }
+    input:-webkit-autofill {
+        transition: background-color 5000s ease-in-out 0s !important;
+    }
 }
