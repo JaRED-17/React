@@ -39,7 +39,9 @@ app.get("/api/news/allnews", (req, res) => {
 });
 
 app.post("/api/news/newsbydate", (req, res) => {
-    if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!');
+    }
 
     res.send({
         html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${req.body.date}/Full.html`), 'utf-8'),
@@ -47,8 +49,23 @@ app.post("/api/news/newsbydate", (req, res) => {
     });
 });
 
+app.post("/api/news/lastnnews", (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!');
+    }
+    const allNews = getFiles(path.join(__dirname, '/src', '/media/news'));
+    const count = req.body.count;
+
+    res.send(allNews.map(news => ({
+        html: fs.readFileSync(path.join(__dirname, '/src', `/media/news/${news}/Short.html`), 'utf-8'),
+        date: news
+    })).slice(0, count));
+});
+
 app.post("/api/user/login", (req, res) => {
-    if (Object.keys(req.body).length === 0) return res.status(500).send('Something went wrong!');
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!');
+    }
 
     if (req.body.email === 'igor.borozdov@gmail.com' && req.body.password === 'aA123456') {
         res.send({success: true});

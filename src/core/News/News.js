@@ -9,6 +9,7 @@ class News {
         };
         this._newsByDate = new API();
         this._allNews = new API();
+        this._lastNNews = new API();
         this.newsByDate = {
             API: this.newsByDate.bind(this),
             ...this._newsByDate.getStatus()
@@ -16,6 +17,10 @@ class News {
         this.allNews = {
             API: this.allNews.bind(this),
             ...this._allNews.getStatus()
+        }
+        this.lastNNews = {
+            API: this.lastNNews.bind(this),
+            ...this._lastNNews.getStatus()
         }
     }
 
@@ -28,6 +33,14 @@ class News {
     }, this.defaultValue);
 
     allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue]);
+
+    lastNNews = (count) => this._allNews.call('/api/news/lastnnews', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(count)
+    }, [this.defaultValue]);
 }
 
 export default News;

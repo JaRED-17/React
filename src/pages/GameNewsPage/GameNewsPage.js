@@ -2,6 +2,7 @@ import React from "react";
 import NewsByDate from "../../components/NewsByDate";
 import RecentNews from "../../components/RecentNews";
 import NewComment from "../../components/NewComment";
+import LastNNews from "../../components/LastNNews";
 
 class GameNewsPage extends React.Component {
 
@@ -24,7 +25,7 @@ class GameNewsPage extends React.Component {
         return result;
     }
 
-    content = (urlParams) => {
+    newsByDate = (urlParams) => {
         return (
             <div className='newsPage'>
                 <div className='newsByDate'>
@@ -41,10 +42,20 @@ class GameNewsPage extends React.Component {
         )
     }
 
+    LastNNews = () => {
+        return (
+            <div className='newsPage'>
+                <div className='newsByDate'>
+                    <LastNNews />
+                </div>
+            </div>
+        )
+    }
+
     render () {
         const { urlParams } = this;
 
-        return urlParams ? this.content(urlParams) : null
+        return urlParams ? this.newsByDate(urlParams) : this.LastNNews();
     }
 }
 
