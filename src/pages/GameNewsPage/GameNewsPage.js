@@ -2,6 +2,7 @@ import React from "react";
 import NewsByDate from "../../components/NewsByDate";
 import RecentNews from "../../components/RecentNews";
 import NewComment from "../../components/NewComment";
+import Comments from "../../components/Comments";
 import LastNNews from "../../components/LastNNews";
 
 class GameNewsPage extends React.Component {
@@ -33,6 +34,9 @@ class GameNewsPage extends React.Component {
                 </div>
                 <div className='NewComment'>
                     <NewComment />
+                </div>
+                <div className='Comments'>
+                    <Comments />
                 </div>
                 <div className='recentNews'>
                     <h3>Последние новости</h3>
