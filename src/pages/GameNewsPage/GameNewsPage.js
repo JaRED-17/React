@@ -17,7 +17,7 @@ class GameNewsPage extends React.Component {
     parseUrlParams = (params) => {
         let result = {};
 
-        params.split('&').map(param => param.split('=').reduce((previousValue, currentValue) => result[previousValue] = currentValue));
+        params.split('&').map(param => param.split('=').reduce((key, value) => result[key] = value));
         return result;
     }
 
