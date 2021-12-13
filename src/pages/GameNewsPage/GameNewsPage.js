@@ -54,8 +54,6 @@ class GameNewsPage extends React.Component {
     render () {
         const { urlParams } = this;
 
-        console.log(urlParams)
-
         return urlParams ? this.newsByDate(urlParams) : this.LastNNews();
     }
 }
