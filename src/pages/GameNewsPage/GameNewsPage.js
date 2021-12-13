@@ -15,14 +15,9 @@ class GameNewsPage extends React.Component {
     }
 
     parseUrlParams = (params) => {
-        const splitParams = params.split('&');
         let result = {};
 
-        for (let i = 0; i < splitParams.length; i++) {
-            const values = splitParams[i].split('=');
-            result[values[0]] = values[1];
-        }
-
+        params.split('&').map(param => param.split('=').reduce((previousValue, currentValue) => result[previousValue] = currentValue));
         return result;
     }
 
@@ -58,6 +53,8 @@ class GameNewsPage extends React.Component {
 
     render () {
         const { urlParams } = this;
+
+        console.log(urlParams)
 
         return urlParams ? this.newsByDate(urlParams) : this.LastNNews();
     }
