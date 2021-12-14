@@ -14,8 +14,8 @@ class Header extends React.Component {
                       <h1><Link to={"/"}>Game news</Link></h1>
                 </div>
                 <div className="Buttons">
-                    <Button className="primary" name="Login" onClick={() => this.onClick('login')} />
-                    <Button className="secondary" name="Registration" onClick={() => this.onClick('registration')} />
+                    <Button className="primary" name="login" onClick={() => this.onClick('login')} />
+                    <Button className="secondary" name="registration" onClick={() => this.onClick('registration')} />
                 </div>
             </div>
         );

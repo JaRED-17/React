@@ -5,12 +5,13 @@ class Field extends React.Component {
 
     render () {
         const { type, name, hidden } = this.props
+        const language = 'ru'
 
         return (
             <div className={`Field ${name}`}>
-                <label>{translations[name]}</label>
+                <label>{translations[language][name]}</label>
                 <input type={type} name={name} ref={name} />
-                <div className={`warning ${hidden}`}>{translations[name]} must be filled in</div>
+                <div className={`warning ${hidden}`}>{translations[language][name]} must be filled in</div>
             </div>
         )
     }

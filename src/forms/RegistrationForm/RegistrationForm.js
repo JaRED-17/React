@@ -29,7 +29,7 @@ class RegistrationForm extends React.Component {
                     </div>
 
                     <div className="Buttons">
-                        <Button type="submit" className="secondary" name="Registration" />
+                        <Button type="submit" className="secondary" name="registration" />
                     </div>
                 </form>
 
@@ -37,7 +37,7 @@ class RegistrationForm extends React.Component {
 
                 <p>If you have account you can login</p>
                 <div className="Buttons">
-                    <Button className="secondary" name="Login" onClick={this.login} />
+                    <Button className="secondary" name="login" onClick={this.login} />
                 </div>
             </div>
 
