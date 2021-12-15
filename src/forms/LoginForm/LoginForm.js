@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import Validation from "../../validation";
 import Field from "../../components/Field"
 import { withRouter } from "react-router-dom";
+import translations from "./translations";
 
 class LoginForm extends React.Component {
 
@@ -42,10 +43,11 @@ class LoginForm extends React.Component {
         const hidden = hasError && !emailHasError && !passwordHasError ? '' : 'hidden';
         const hiddenEmail = emailHasError ? '' : 'hidden';
         const hiddenPassword = passwordHasError ? '' : 'hidden';
+        const language = 'ru'
 
         return (
             <div className='LoginForm'>
-                <h3>Login</h3>
+                <h3>{translations[language]['app.form.login.title']}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className={`error ${hidden}`}>Bad credentials</div>
                     <div className="Form">
@@ -60,7 +62,7 @@ class LoginForm extends React.Component {
 
                 <hr/>
 
-                <p>Or you can create a new account</p>
+                <p>{translations[language]['app.form.login.createNewAccount']}</p>
                 <div className="Buttons">
                     <Button className="secondary" name="registration" onClick={this.registration} />
                 </div>
