@@ -1,4 +1,5 @@
 import React from "react";
+import Warning from "../Warning";
 import translations from "./translations";
 
 class Field extends React.Component {
@@ -11,7 +12,7 @@ class Field extends React.Component {
             <div className={`Field ${name}`}>
                 <label>{translations[language][name]}</label>
                 <input type={type} name={name} ref={name} />
-                <div className={`warning ${hidden}`}>{translations[language][name]} must be filled in</div>
+                <Warning hidden={hidden} field={translations[language][name]} warningCode={1} />
             </div>
         )
     }
