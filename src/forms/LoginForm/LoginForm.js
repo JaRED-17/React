@@ -3,6 +3,7 @@ import core from "../../core/Core";
 import Button from "../../components/Button";
 import Validation from "../../validation";
 import Field from "../../components/Field"
+import Error from "../../components/Error";
 import { withRouter } from "react-router-dom";
 import translations from "./translations";
 
@@ -49,7 +50,7 @@ class LoginForm extends React.Component {
             <div className='LoginForm'>
                 <h3>{translations[language]['app.form.login.title']}</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className={`error ${hidden}`}>Bad credentials</div>
+                    <Error hidden={hidden} errorCode={1} />
                     <div className="Form">
                         <Field type={'text'} name={'email'} hidden={hiddenEmail} />
                         <Field type={'password'} name={'password'} hidden={hiddenPassword} />
