@@ -28,6 +28,7 @@ const getFiles = (dir, files_) => {
 app.use(webpackDevMiddleware(compiler, { publicPath: config.output.publicPath }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static('dist'));
 
 app.get("/api/news/allnews", (req, res) => {
     const allNews = getFiles(path.join(__dirname, '/src', '/media/news'));
@@ -76,6 +77,10 @@ app.post("/api/user/login", (req, res) => {
 
 app.post("/api/user/registration", (req, res) => {
     res.send({success: true});
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
