@@ -1,12 +1,12 @@
 const translations = {
     en: {
-        "email": "Email",
-        "password": "Password"
+        'email': 'Email',
+        'password': 'Password'
     },
     ru: {
-        "email": "Эл. поста",
-        "password": "Пароль"
+        'email': 'Эл. поста',
+        'password': 'Пароль'
     }
 }
 
-export default translations;
+export default translations

@@ -1,6 +1,6 @@
-import React from "react";
-import SideBanner from "../../components/SideBanner";
-import RecentNews from "../../components/RecentNews";
+import React from 'react'
+import SideBanner from '../../components/SideBanner'
+import RecentNews from '../../components/RecentNews'
 
 class HomePage extends React.Component {
     render () {
@@ -14,4 +14,4 @@ class HomePage extends React.Component {
     }
 }
 
-export default HomePage;
+export default HomePage

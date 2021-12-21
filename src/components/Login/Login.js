@@ -1,6 +1,6 @@
-import React from "react";
-import Popup from '../Popup';
-import LoginForm from '../../forms/LoginForm';
+import React from 'react'
+import Popup from '../Popup'
+import LoginForm from '../../forms/LoginForm'
 
 class Login extends React.Component {
     render () {
@@ -12,4 +12,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default Login

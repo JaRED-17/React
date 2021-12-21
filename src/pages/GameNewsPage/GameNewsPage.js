@@ -1,24 +1,23 @@
-import React from "react";
-import NewsByDate from "../../components/NewsByDate";
-import RecentNews from "../../components/RecentNews";
-import NewComment from "../../components/NewComment";
-import Comments from "../../components/Comments";
-import LastNNews from "../../components/LastNNews";
+import React from 'react'
+import NewsByDate from '../../components/NewsByDate'
+import RecentNews from '../../components/RecentNews'
+import NewComment from '../../components/NewComment'
+import Comments from '../../components/Comments'
+import LastNNews from '../../components/LastNNews'
 
 class GameNewsPage extends React.Component {
-
     get urlParams () {
-        const urlParams = window.location.search;
-        const params = urlParams ? urlParams.replace('?', '') : null;
+        const urlParams = window.location.search
+        const params = urlParams ? urlParams.replace('?', '') : null
 
-        return params ? this.parseUrlParams(params) : null;
+        return params ? this.parseUrlParams(params) : null
     }
 
     parseUrlParams = (params) => {
-        let result = {};
+        let result = {}
 
-        params.split('&').map(param => param.split('=').reduce((key, value) => result[key] = value));
-        return result;
+        params.split('&').map(param => param.split('=').reduce((key, value) => { result[key] = value }))
+        return result
     }
 
     newsByDate = (urlParams) => {
@@ -52,10 +51,10 @@ class GameNewsPage extends React.Component {
     }
 
     render () {
-        const { urlParams } = this;
+        const { urlParams } = this
 
-        return urlParams ? this.newsByDate(urlParams) : this.LastNNews();
+        return urlParams ? this.newsByDate(urlParams) : this.LastNNews()
     }
 }
 
-export default GameNewsPage;
+export default GameNewsPage

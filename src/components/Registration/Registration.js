@@ -1,6 +1,6 @@
-import React from "react";
-import Popup from '../Popup';
-import RegistrationForm from '../../forms/RegistrationForm';
+import React from 'react'
+import Popup from '../Popup'
+import RegistrationForm from '../../forms/RegistrationForm'
 
 class Registration extends React.Component {
     render () {
@@ -12,4 +12,4 @@ class Registration extends React.Component {
     }
 }
 
-export default Registration;
+export default Registration

@@ -1,14 +1,19 @@
-import React from "react";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class Comment extends React.Component {
+    static propTypes = {
+        answers: PropTypes.number,
+        content: PropTypes.string
+    }
 
     render () {
-        const { answers, content } = this.props;
+        const { answers, content } = this.props
 
         return (
             <div className='Comment'>
                 <div className='Comment-header'>
-                    <div className='avatar'></div>
+                    <div className='avatar' />
                     <div>
                         <div className='userName'>User Name</div>
                         <div className='date'>01.01.2021</div>
@@ -26,4 +31,4 @@ class Comment extends React.Component {
     }
 }
 
-export default Comment;
+export default Comment

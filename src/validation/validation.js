@@ -1,17 +1,27 @@
 class Validation {
-
     static email = (email) => {
-        if (email === '') return {success: false, error: 'empty'}
+        if (!email || email === '') {
+            return {
+                success: false,
+                error: 'empty',
+                errorCode: 1
+            }
+        }
 
-        return {success: true}
+        return { success: true }
     }
 
     static password = (password) => {
-        if (password === '') return {success: false, error: 'empty'}
+        if (!password || password === '') {
+            return {
+                success: false,
+                error: 'empty',
+                errorCode: 1
+            }
+        }
 
-        return {success: true}
+        return { success: true }
     }
-
 }
 
-export default Validation;
+export default Validation

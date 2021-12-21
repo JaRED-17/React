@@ -1,29 +1,28 @@
-import React from "react";
-import News from "../News"
-import core from "../../core/Core";
-import NewsParent from "../NewsParent";
+import React from 'react'
+import News from '../News'
+import core from '../../core/Core'
+import NewsParent from '../NewsParent'
 
 class RecentNews extends NewsParent {
-
     allNews = () => core.news.allNews.API().then(response => this.updateState(core.news.allNews.loading || false, response))
 
     get newsContent () {
-        const { content } = this.state;
-        const { skipNews } = this.props;
+        const { content } = this.state
+        const { skipNews } = this.props
 
         return this.content(content.map(currentNews => {
             return currentNews.html && currentNews.date !== skipNews
-                ? <News key={currentNews.date} type='short' content={currentNews.html} horizontal={true} date={currentNews.date} />
-                : null}),
-            'RecentNews');
+                ? <News key={currentNews.date} type='short' content={currentNews.html} horizontal date={currentNews.date} />
+                : null
+        }), 'RecentNews')
     }
 
     render () {
-        const { isLoading } = this.state;
+        const { isLoading } = this.state
 
-        if (isLoading) this.allNews();
-        return isLoading ? this.content() : this.newsContent;
+        if (isLoading) this.allNews()
+        return isLoading ? this.content() : this.newsContent
     }
 }
 
-export default RecentNews;
+export default RecentNews

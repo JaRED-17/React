@@ -1,10 +1,10 @@
 const translations = {
     en: {
-        "app.header.title": "Game news",
+        'app.header.title': 'Game news'
     },
     ru: {
-        "app.header.title": "Новости игр",
+        'app.header.title': 'Новости игр'
     }
 }
 
-export default translations;
+export default translations

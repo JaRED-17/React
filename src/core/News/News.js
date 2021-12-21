@@ -1,15 +1,14 @@
 import API from '../API'
 
 class News {
-
     constructor () {
         this.defaultValue = {
             date: '15.02.2021',
             html: ''
-        };
-        this._newsByDate = new API();
-        this._allNews = new API();
-        this._lastNNews = new API();
+        }
+        this._newsByDate = new API()
+        this._allNews = new API()
+        this._lastNNews = new API()
         this.newsByDate = {
             API: this.newsByDate.bind(this),
             ...this._newsByDate.getStatus()
@@ -34,14 +33,14 @@ class News {
     newsByDate = (date) => this._newsByDate.call('/api/news/newsbydate', {
         ...this.getInitData(),
         body: JSON.stringify({'date': date || this.defaultValue.date})
-    }, this.defaultValue);
+    }, this.defaultValue)
 
-    allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue]);
+    allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue])
 
     lastNNews = (count) => this._allNews.call('/api/news/lastnnews', {
         ...this.getInitData(),
         body: JSON.stringify(count)
-    }, [this.defaultValue]);
+    }, [this.defaultValue])
 }
 
-export default News;
+export default News

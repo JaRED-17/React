@@ -1,13 +1,18 @@
-import React from "react";
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class NewsContent extends React.Component {
+    static propTypes = {
+        content: PropTypes.string
+    }
+
     render () {
-        const { content } = this.props;
+        const { content } = this.props
 
         return (
-            <div className="card-content" dangerouslySetInnerHTML={{ __html: content }} />
+            <div className='card-content' dangerouslySetInnerHTML={{ __html: content }} />
         )
     }
 }
 
-export default NewsContent;
+export default NewsContent

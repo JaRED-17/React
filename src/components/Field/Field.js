@@ -1,8 +1,14 @@
-import React from "react";
-import Warning from "../Warning";
-import translations from "./translations";
+import React from 'react'
+import Warning from '../Warning'
+import translations from './translations'
+import PropTypes from 'prop-types'
 
 class Field extends React.Component {
+    static propTypes = {
+        type: PropTypes.string,
+        name: PropTypes.string,
+        hidden: PropTypes.string,
+    }
 
     render () {
         const { type, name, hidden } = this.props
@@ -18,4 +24,4 @@ class Field extends React.Component {
     }
 }
 
-export default Field;
+export default Field

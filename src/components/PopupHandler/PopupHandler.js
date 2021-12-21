@@ -1,9 +1,8 @@
-import React from "react";
-import Login from '../Login';
-import Registration from '../Registration';
+import React from 'react'
+import Login from '../Login'
+import Registration from '../Registration'
 
 class PopupHandler extends React.Component {
-
     get content () {
         return (
             <div className='Popups'>
@@ -18,4 +17,4 @@ class PopupHandler extends React.Component {
     }
 }
 
-export default PopupHandler;
+export default PopupHandler

@@ -1,3 +1,3 @@
-import PopupStore from "./PopupStore";
+import PopupStore from './PopupStore'
 
-export default new PopupStore();
+export default new PopupStore()

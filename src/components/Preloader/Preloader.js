@@ -1,24 +1,23 @@
-import React from "react";
+import React from 'react'
 
 class Preloader extends React.Component {
-
-    state = {isLoading: true};      
+    state = {isLoading: true}
 
     componentDidMount () {
-        setTimeout(() => {            
-            this.setState({isLoading: false});
-        }, 1500);
+        setTimeout(() => {
+            this.setState({isLoading: false})
+        }, 1500)
     }
 
     get content () {
-        return <div className="Preloader"></div>
+        return <div className='Preloader' />
     }
 
     render () {
-        const { isLoading } = this.state;
+        const { isLoading } = this.state
 
-        return isLoading ? this.content : null;
+        return isLoading ? this.content : null
     }
 }
 
-export default Preloader;
+export default Preloader

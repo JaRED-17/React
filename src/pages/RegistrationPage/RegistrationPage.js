@@ -1,5 +1,5 @@
-import React from "react";
-import RegistrationForm from '../../forms/RegistrationForm';
+import React from 'react'
+import RegistrationForm from '../../forms/RegistrationForm'
 
 class RegistrationPage extends React.Component {
     render () {
@@ -7,4 +7,4 @@ class RegistrationPage extends React.Component {
     }
 }
 
-export default RegistrationPage;
+export default RegistrationPage

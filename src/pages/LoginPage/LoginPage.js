@@ -1,5 +1,5 @@
-import React from "react";
-import LoginForm from '../../forms/LoginForm';
+import React from 'react'
+import LoginForm from '../../forms/LoginForm'
 
 class LoginPage extends React.Component {
     render () {
@@ -7,4 +7,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage;
+export default LoginPage

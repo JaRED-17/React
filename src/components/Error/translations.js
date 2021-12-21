@@ -1,10 +1,10 @@
 const translations = {
     en: {
-        "app.error.code.1": "Bad credentials",
+        'app.error.code.1': 'Bad credentials'
     },
     ru: {
-        "app.error.code.1": "Неверные логин/пароль",
+        'app.error.code.1': 'Неверные логин/пароль'
     }
 }
 
-export default translations;
+export default translations
