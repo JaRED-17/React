@@ -5,7 +5,15 @@ class Translations {
         this.language = 'en'
     }
 
-    getTranslations = (key) => {
+    getTranslations = (key, replacements = {}) => {
+        if (Object.keys(replacements).length > 0) {
+            let translation = this.translations[this.language][this.prefix + key]
+
+            for (key in replacements) {
+                translation = translation.replace('{' + key + '}', replacements[key])
+            }
+            return translation
+        }
         return this.translations[this.language][this.prefix + key]
     }
 }
