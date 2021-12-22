@@ -1,13 +1,13 @@
 const translations = {
     en: {
-        'login': 'Login',
-        'registration': 'Registration',
-        'back': 'Back to home'
+        'app.button.login': 'Login',
+        'app.button.registration': 'Registration',
+        'app.button.back': 'Back to home'
     },
     ru: {
-        'login': 'Войти',
-        'registration': 'Регистрация',
-        'back': 'Домой'
+        'app.button.login': 'Войти',
+        'app.button.registration': 'Регистрация',
+        'app.button.back': 'Домой'
     }
 }
 

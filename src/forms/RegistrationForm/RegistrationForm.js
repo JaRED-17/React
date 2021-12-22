@@ -5,12 +5,14 @@ import core from '../../core/Core'
 import Field from '../../components/Field'
 import { withRouter } from 'react-router-dom'
 import translations from './translations'
+import Translations from '../../translations'
 import PropTypes from 'prop-types'
 
 class RegistrationForm extends React.Component {
     static propTypes = {
         history: PropTypes.array
     }
+    messages = new Translations(translations, 'app.form.registration.')
 
     state = {
         emailHasError: false,
@@ -42,11 +44,10 @@ class RegistrationForm extends React.Component {
         const { emailHasError, passwordHasError } = this.state
         const hiddenEmail = emailHasError ? '' : 'hidden'
         const hiddenPassword = passwordHasError ? '' : 'hidden'
-        const language = 'ru'
 
         return (
             <div className='RegistrationForm'>
-                <h3>{translations[language]['app.form.registration.title']}</h3>
+                <h3>{this.messages.getTranslations('title')}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className='Form'>
                         <Field type={'text'} name={'email'} hidden={hiddenEmail} />
@@ -60,7 +61,7 @@ class RegistrationForm extends React.Component {
 
                 <hr />
 
-                <p>{translations[language]['app.form.registration.userHasAccount']}</p>
+                <p>{this.messages.getTranslations('userHasAccount')}</p>
                 <div className='Buttons'>
                     <Button className='secondary' name='login' onClick={this.login} />
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import translations from './translations'
+import Translations from '../../translations'
 import PropTypes from 'prop-types'
 
 class Button extends React.Component {
@@ -7,17 +8,17 @@ class Button extends React.Component {
         onClick: PropTypes.func,
         name: PropTypes.string
     }
+    messages = new Translations(translations, 'app.button.')
 
     render () {
         const { onClick, name } = this.props
-        const language = 'ru'
 
         return (
             <button
                 className='button waves-effect waves-light btn'
                 onClick={onClick}
             >
-                {translations[language][name] || name}
+                {this.messages.getTranslations(name)}
             </button>
         )
     }

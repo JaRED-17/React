@@ -25,10 +25,10 @@ const getFiles = (dir, files_) => {
     return files_
 }
 
-app.use(webpackDevMiddleware(compiler, { publicPath: config.output.publicPath }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static('dist'));
+app.use(webpackDevMiddleware(compiler, { publicPath: config.output.publicPath }))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(express.static('dist'))
 
 app.get('/api/news/allnews', (req, res) => {
     const allNews = getFiles(path.join(__dirname, '/src', '/media/news'))

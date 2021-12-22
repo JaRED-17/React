@@ -1,11 +1,11 @@
 const translations = {
     en: {
-        'email': 'Email',
-        'password': 'Password'
+        'app.field.email': 'Email',
+        'app.field.password': 'Password'
     },
     ru: {
-        'email': 'Эл. поста',
-        'password': 'Пароль'
+        'app.field.email': 'Эл. поста',
+        'app.field.password': 'Пароль'
     }
 }
 

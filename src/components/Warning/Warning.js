@@ -1,5 +1,6 @@
 import React from 'react'
 import translations from './translations'
+import Translations from '../../translations'
 import PropTypes from 'prop-types'
 
 class Warning extends React.Component {
@@ -8,12 +9,12 @@ class Warning extends React.Component {
         field: PropTypes.string,
         warningCode: PropTypes.number
     }
+    messages = new Translations(translations, 'app.error.warning.code.')
 
     render () {
         const { hidden, field, warningCode } = this.props
-        const language = 'ru'
 
-        return <div className={`warning ${hidden}`}>{translations[language]['app.error.warning.code.' + warningCode].replace('{0}', field)}</div>
+        return <div className={`warning ${hidden}`}>{this.messages.getTranslations(warningCode).replace('{0}', field)}</div>
     }
 }
 
