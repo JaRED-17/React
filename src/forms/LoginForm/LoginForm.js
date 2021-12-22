@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
     static propTypes = {
         history: PropTypes.array
     }
+
     state = {
         hasError: false,
         emailHasError: false,

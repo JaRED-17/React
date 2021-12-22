@@ -7,7 +7,7 @@ class Field extends React.Component {
     static propTypes = {
         type: PropTypes.string,
         name: PropTypes.string,
-        hidden: PropTypes.string,
+        hidden: PropTypes.string
     }
 
     render () {

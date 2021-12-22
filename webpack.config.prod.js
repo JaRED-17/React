@@ -7,11 +7,11 @@ const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-    mode: "production",
+    mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name]-[hash]-bundle.js',
-        clean: true,
+        clean: true
     },
     optimization: {
         splitChunks: {
@@ -39,24 +39,24 @@ module.exports = {
                     to: path.resolve(__dirname, './dist/media')
                 }
             ]
-        }),
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
-                    presets: ["@babel/preset-env", "@babel/preset-react"],
-                    plugins: ["@babel/plugin-proposal-class-properties"]
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-class-properties']
                 }
             },
             {
                 test: /\.scss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader
                     },
                     'css-loader',
                     'sass-loader'
@@ -66,10 +66,10 @@ module.exports = {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
+                        loader: 'file-loader'
+                    }
+                ]
+            }
         ]
     }
-};
+}

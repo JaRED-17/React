@@ -1,18 +1,18 @@
-const path = require('path');
+const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
-    mode: "development",
+    mode: 'development',
     output: {
         path: path.resolve(__dirname, '/dist'),
         filename: '[name]-[hash]-bundle.js',
         clean: true,
-        publicPath: '/',
+        publicPath: '/'
     },
     optimization: {
         splitChunks: {
@@ -24,7 +24,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 8080,
         watchContentBase: true,
@@ -47,24 +47,24 @@ module.exports = {
                     to: path.resolve(__dirname, './dist/media')
                 }
             ]
-        }),
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
-                    presets: ["@babel/preset-env", "@babel/preset-react"],
-                    plugins: ["@babel/plugin-proposal-class-properties"]
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-class-properties']
                 }
             },
             {
                 test: /\.scss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader
                     },
                     'css-loader',
                     'sass-loader'
@@ -74,10 +74,10 @@ module.exports = {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
+                        loader: 'file-loader'
+                    }
+                ]
+            }
         ]
     }
-};
+}
