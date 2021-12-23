@@ -29,6 +29,7 @@ class Header extends React.Component {
                 </div>
                 {this.isLoggedIn() ? (
                     <div className='Buttons'>
+                        <Button className='primary' name='account' onClick={() => this.onClick('my-account')} />
                         <Button className='primary' name='logout' onClick={() => this.logout()} />
                     </div>
                 ) : (

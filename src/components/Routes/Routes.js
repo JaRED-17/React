@@ -8,6 +8,7 @@ import LoginPage from '../../pages/LoginPage'
 import RegistrationPage from '../../pages/RegistrationPage'
 import GameNewsPage from '../../pages/GameNewsPage'
 import NotFoundPage from '../../pages/NotFoundPage'
+import MyAccountPage from '../../pages/MyAccountPage'
 
 class Routes extends React.Component {
     isLoggedIn = () => core.user.isLoggedIn()
@@ -16,12 +17,13 @@ class Routes extends React.Component {
         return (
             <Switch>
                 <Route path='/' component={HomePage} exact />
-                {!this.isLoggedIn() ? (
-                    <>
+                {this.isLoggedIn()
+                    ? <Route path='/my-account' component={MyAccountPage} exact />
+                    : <>
                         <Route path='/login' component={LoginPage} exact />
                         <Route path='/registration' component={RegistrationPage} exact />
                     </>
-                ) : null}
+                }
                 <Route path='/news' component={GameNewsPage} exact />
                 <Route component={NotFoundPage} />
             </Switch>
