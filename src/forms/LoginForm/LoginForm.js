@@ -23,6 +23,11 @@ class LoginForm extends React.Component {
 
     login = (data) => core.user.login.API(data).then(response => {
         console.log(response)
+
+        if (response.success) {
+            localStorage.setItem('isLoggedIn', true)
+            window.location.href = '/'
+        }
         this.setState({hasError: !response.success})
     })
 
