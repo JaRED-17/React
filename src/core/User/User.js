@@ -26,7 +26,7 @@ class User {
 
     registration = (data) => this._registration.call('/api/user/registration', this.getInitData(data))
 
-    isLoggedIn = () => localStorage.getItem('isLoggedIn') === 'true'
+    isLoggedIn = () => window.localStorage.getItem('isLoggedIn') === 'true'
 }
 
 export default User

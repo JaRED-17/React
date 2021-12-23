@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
         console.log(response)
 
         if (response.success) {
-            localStorage.setItem('isLoggedIn', true)
+            window.localStorage.setItem('isLoggedIn', true)
             window.location.href = '/'
         }
         this.setState({hasError: !response.success})

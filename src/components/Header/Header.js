@@ -17,7 +17,7 @@ class Header extends React.Component {
     onClick = (path) => this.props.history.push(`/${path}`)
 
     logout = () => {
-        localStorage.setItem('isLoggedIn', false)
+        window.localStorage.setItem('isLoggedIn', false)
         window.location.href = '/'
     }
 
