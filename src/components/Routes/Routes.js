@@ -17,13 +17,15 @@ class Routes extends React.Component {
         return (
             <Switch>
                 <Route path='/' component={HomePage} exact />
-                {this.isLoggedIn()
-                    ? <Route path='/my-account' component={MyAccountPage} exact />
-                    : <>
-                        <Route path='/login' component={LoginPage} exact />
-                        <Route path='/registration' component={RegistrationPage} exact />
-                    </>
-                }
+                {this.isLoggedIn() ? (
+                    <Route path='/my-account' component={MyAccountPage} exact />
+                ) : null}
+                {!this.isLoggedIn() ? (
+                    <Route path='/login' component={LoginPage} exact />
+                ) : null}
+                {!this.isLoggedIn() ? (
+                    <Route path='/registration' component={RegistrationPage} exact />
+                ) : null}
                 <Route path='/news' component={GameNewsPage} exact />
                 <Route component={NotFoundPage} />
             </Switch>
