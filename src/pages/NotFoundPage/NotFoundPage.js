@@ -16,7 +16,7 @@ class NotFoundPage extends React.Component {
     render () {
         return (
             <div className='NotFoundPage'>
-                <h3>{this.messages.getTranslations('.header')}</h3>
+                <h3 className='header'>{this.messages.getTranslations('header')}</h3>
                 <div className='Buttons'>
                     <Button className='primary' name='back' onClick={this.back} />
                 </div>
