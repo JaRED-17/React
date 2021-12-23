@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import core from '../../core/Core/Core'
+import core from '../../core/Core'
 
 /* Pages */
 import HomePage from '../../pages/HomePage'
