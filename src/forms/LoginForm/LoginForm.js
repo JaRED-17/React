@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 
 class LoginForm extends React.Component {
     static propTypes = {
-        history: PropTypes.array
+        history: PropTypes.object
     }
     messages = new Translations(translations, 'app.form.login.')
 

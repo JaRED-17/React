@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 class Popup extends React.Component {
     static propTypes = {
-        history: PropTypes.array,
+        history: PropTypes.object,
         children: PropTypes.any
     }
 

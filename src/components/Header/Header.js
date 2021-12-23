@@ -8,7 +8,7 @@ import core from '../../core/Core'
 
 class Header extends React.Component {
     static propTypes = {
-        history: PropTypes.array
+        history: PropTypes.object
     }
     messages = new Translations(translations, 'app.header.')
 

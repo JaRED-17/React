@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 class NotFoundPage extends React.Component {
     static propTypes = {
-        history: PropTypes.array
+        history: PropTypes.object
     }
     messages = new Translations(translations, 'app.page.notfound.')
 
