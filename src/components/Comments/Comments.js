@@ -1,11 +1,15 @@
 import React from 'react'
 import Comment from '../Comment'
+import translations from './translations'
+import Translations from '../../translations'
 
 class Comments extends React.Component {
+    messages = new Translations(translations, 'app.comments.')
+
     emptyComments = () => {
         return (
             <div>
-                No comments
+                <h1>{this.messages.getTranslations('noComments')}</h1>
             </div>
         )
     }
