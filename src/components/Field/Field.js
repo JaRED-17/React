@@ -9,18 +9,18 @@ class Field extends React.Component {
         type: PropTypes.string,
         name: PropTypes.string,
         data: PropTypes.string,
-        hidden: PropTypes.string
+        showWarning: PropTypes.bool
     }
     messages = new Translations(translations, 'app.field.')
 
     render () {
-        const { type, name, data, hidden } = this.props
+        const { type, name, data, showWarning } = this.props
 
         return (
             <div className={`Field ${name}`}>
                 <label>{this.messages.getTranslations(name)}</label>
                 <input id={`field_${name}`} type={type} name={name} ref={name} defaultValue={data || ''} />
-                <Warning hidden={hidden} field={this.messages.getTranslations(name)} warningCode={1} />
+                <Warning show={showWarning} field={this.messages.getTranslations(name)} warningCode={1} />
             </div>
         )
     }

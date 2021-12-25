@@ -5,16 +5,16 @@ import PropTypes from 'prop-types'
 
 class Warning extends React.Component {
     static propTypes = {
-        hidden: PropTypes.string,
+        show: PropTypes.bool,
         field: PropTypes.string,
         warningCode: PropTypes.number
     }
     messages = new Translations(translations, 'app.error.warning.code.')
 
     render () {
-        const { hidden, field, warningCode } = this.props
+        const { show, field, warningCode } = this.props
 
-        return <div className={`warning ${hidden}`}>{this.messages.getTranslations(warningCode, { fieldName: field })}</div>
+        return <div className={`warning ${show ? '' : 'hidden'}`}>{this.messages.getTranslations(warningCode, { fieldName: field })}</div>
     }
 }
 

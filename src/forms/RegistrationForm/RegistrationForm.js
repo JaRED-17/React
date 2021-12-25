@@ -31,15 +31,13 @@ class RegistrationForm extends React.Component {
 
     render () {
         const { emailHasError, passwordHasError } = this.state
-        const hiddenEmail = emailHasError ? '' : 'hidden'
-        const hiddenPassword = passwordHasError ? '' : 'hidden'
 
         return (
             <div className='RegistrationForm'>
                 <form onSubmit={this.onSubmit}>
                     <div className='Form'>
-                        <Field type={'text'} name={'email'} hidden={hiddenEmail} />
-                        <Field type={'password'} name={'password'} hidden={hiddenPassword} />
+                        <Field type={'text'} name={'email'} showWarning={emailHasError} />
+                        <Field type={'password'} name={'password'} showWarning={passwordHasError} />
                     </div>
 
                     <div className='Buttons'>
