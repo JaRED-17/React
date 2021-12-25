@@ -12,7 +12,7 @@ class Warning extends React.Component {
     messages = new Translations(translations, 'app.error.warning.code.')
 
     render () {
-        const { show, field, warningCode } = this.props
+        const { show = false, field, warningCode } = this.props
 
         return <div className={`warning ${show ? '' : 'hidden'}`}>{this.messages.getTranslations(warningCode, { fieldName: field })}</div>
     }

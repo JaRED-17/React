@@ -11,7 +11,7 @@ class Error extends React.Component {
     messages = new Translations(translations, 'app.error.code.')
 
     render () {
-        const { show, errorCode } = this.props
+        const { show = false, errorCode } = this.props
 
         return <div className={`error ${show ? '' : 'hidden'}`}>{this.messages.getTranslations(errorCode)}</div>
     }
