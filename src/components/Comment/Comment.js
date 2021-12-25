@@ -6,20 +6,22 @@ import PropTypes from 'prop-types'
 class Comment extends React.Component {
     static propTypes = {
         answers: PropTypes.number,
-        content: PropTypes.string
+        content: PropTypes.string,
+        user: PropTypes.string,
+        date: PropTypes.string
     }
     messages = new Translations(translations, 'app.comment.')
 
     render () {
-        const { answers, content } = this.props
+        const { answers, content, user, date } = this.props
 
         return (
             <div className='Comment'>
                 <div className='Comment-header'>
                     <div className='avatar' />
                     <div>
-                        <div className='userName'>User Name</div>
-                        <div className='date'>01.01.2021</div>
+                        <div className='userName'>{user}</div>
+                        <div className='date'>{date}</div>
                     </div>
                 </div>
                 <div className='Comment-content'>

@@ -33,7 +33,7 @@ class GameNewsPage extends React.Component {
                     <NewComment />
                 </div>
                 <div className='Comments'>
-                    <Comments />
+                    <Comments params={urlParams} />
                 </div>
                 <div className='recentNews'>
                     <h3>{this.messages.getTranslations('lastNews')}</h3>

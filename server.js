@@ -96,6 +96,15 @@ app.post('/api/user/save', (req, res) => {
     res.send({success: true})
 })
 
+app.post('/api/comments', (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!')
+    }
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, '/src', '/data/comments.json'), 'utf-8'))
+
+    res.send(data ? data[req.body.date] ? data[req.body.date]['id' + req.body.id] : {} : {})
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
