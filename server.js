@@ -79,6 +79,15 @@ app.post('/api/user/registration', (req, res) => {
     res.send({success: true})
 })
 
+app.post('/api/user/data', (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!')
+    }
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, '/src', '/data/users.json'), 'utf-8'))
+
+    res.send(data[req.body.user].data || {})
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
