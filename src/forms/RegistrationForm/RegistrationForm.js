@@ -1,25 +1,14 @@
 import React from 'react'
+import core from '../../core/Core'
 import Button from '../../components/Button'
 import Validation from '../../validation'
-import core from '../../core/Core'
 import Field from '../../components/Field'
-import { withRouter } from 'react-router-dom'
-import translations from './translations'
-import Translations from '../../translations'
-import PropTypes from 'prop-types'
 
 class RegistrationForm extends React.Component {
-    static propTypes = {
-        history: PropTypes.object
-    }
-    messages = new Translations(translations, 'app.form.registration.')
-
     state = {
         emailHasError: false,
         passwordHasError: false
     }
-
-    login = () => this.props.history.push('/login')
 
     registration = (data) => core.user.registration.API(data).then(response => console.log(response))
 
@@ -47,7 +36,6 @@ class RegistrationForm extends React.Component {
 
         return (
             <div className='RegistrationForm'>
-                <h3>{this.messages.getTranslations('title')}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className='Form'>
                         <Field type={'text'} name={'email'} hidden={hiddenEmail} />
@@ -58,17 +46,9 @@ class RegistrationForm extends React.Component {
                         <Button type='submit' className='secondary' name='registration' />
                     </div>
                 </form>
-
-                <hr />
-
-                <p>{this.messages.getTranslations('userHasAccount')}</p>
-                <div className='Buttons'>
-                    <Button className='secondary' name='login' onClick={this.login} />
-                </div>
             </div>
-
         )
     }
 }
 
-export default withRouter(RegistrationForm)
+export default RegistrationForm
