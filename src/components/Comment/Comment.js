@@ -1,4 +1,6 @@
 import React from 'react'
+import translations from './translations'
+import Translations from '../../translations'
 import PropTypes from 'prop-types'
 
 class Comment extends React.Component {
@@ -6,6 +8,7 @@ class Comment extends React.Component {
         answers: PropTypes.number,
         content: PropTypes.string
     }
+    messages = new Translations(translations, 'app.comment.')
 
     render () {
         const { answers, content } = this.props
@@ -23,8 +26,8 @@ class Comment extends React.Component {
                     {content}
                 </div>
                 <div className='Comment-answers'>
-                    <p>Ответов: {answers}</p>
-                    <a href='#'>Ответить</a>
+                    <p>{this.messages.getTranslations('answers', {count: answers})}</p>
+                    <a href='#'>{this.messages.getTranslations('answer')}</a>
                 </div>
             </div>
         )
