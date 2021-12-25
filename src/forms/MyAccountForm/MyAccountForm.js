@@ -13,7 +13,6 @@ class MyAccountForm extends React.Component {
 
     populateUserData = () => {
         this.getUserData({user: 'user1'}).then(response => {
-
             if (Object.keys(response).length !== 0) {
                 this.setState({userData: response})
             }
