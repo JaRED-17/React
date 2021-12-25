@@ -6,7 +6,7 @@ const translations = {
         'app.field.lastName': 'Last Name'
     },
     ru: {
-        'app.field.email': 'Эл. поста',
+        'app.field.email': 'Эл. почта',
         'app.field.password': 'Пароль',
         'app.field.firstName': 'Имя',
         'app.field.lastName': 'Фамилия'
