@@ -33,7 +33,7 @@ class MyAccountForm extends React.Component {
         return (
             <div className='MyAccountForm'>
                 <form onSubmit={this.onSubmit}>
-                    <Error hidden={'hidden'} errorCode={1} />
+                    <Error show={false} errorCode={1} />
                     <div className='Form'>
                         <Field type={'text'} name={'firstName'} showWarning={false} data={userData.first_name || ''} />
                         <Field type={'text'} name={'lastName'} showWarning={false} data={userData.last_name || ''} />

@@ -41,12 +41,12 @@ class LoginForm extends React.Component {
 
     render () {
         const { hasError, emailHasError, passwordHasError } = this.state
-        const hidden = hasError && !emailHasError && !passwordHasError ? '' : 'hidden'
+        const showError = hasError && !emailHasError && !passwordHasError
 
         return (
             <div className='LoginForm'>
                 <form onSubmit={this.onSubmit}>
-                    <Error hidden={hidden} errorCode={1} />
+                    <Error show={showError} errorCode={1} />
                     <div className='Form'>
                         <Field type={'text'} name={'email'} showWarning={emailHasError} />
                         <Field type={'password'} name={'password'} showWarning={passwordHasError} />
