@@ -4,6 +4,8 @@ import RecentNews from '../../components/RecentNews'
 import NewComment from '../../components/NewComment'
 import Comments from '../../components/Comments'
 import LastNNews from '../../components/LastNNews'
+import translations from './translations'
+import Translations from '../../translations'
 
 class GameNewsPage extends React.Component {
     get urlParams () {
@@ -12,6 +14,7 @@ class GameNewsPage extends React.Component {
 
         return params ? this.parseUrlParams(params) : null
     }
+    messages = new Translations(translations, 'app.page.gameNews.')
 
     parseUrlParams = (params) => {
         let result = {}
@@ -33,7 +36,7 @@ class GameNewsPage extends React.Component {
                     <Comments />
                 </div>
                 <div className='recentNews'>
-                    <h3>Последние новости</h3>
+                    <h3>{this.messages.getTranslations('lastNews')}</h3>
                     <RecentNews skipNews={urlParams.date} />
                 </div>
             </div>
