@@ -35,8 +35,8 @@ class MyAccountForm extends React.Component {
                 <form onSubmit={this.onSubmit}>
                     <Error show={false} errorCode={1} />
                     <div className='Form'>
-                        <Field type={'text'} name={'firstName'} showWarning={false} value={userData.first_name || ''} />
-                        <Field type={'text'} name={'lastName'} showWarning={false} value={userData.last_name || ''} />
+                        <Field type={'text'} name={'firstName'} showWarning={false} value={userData.firstName || ''} />
+                        <Field type={'text'} name={'lastName'} showWarning={false} value={userData.lastName || ''} />
                         <Field type={'text'} name={'email'} showWarning={false} value={userData.email || ''} />
                     </div>
 
