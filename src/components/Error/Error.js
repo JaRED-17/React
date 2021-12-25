@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class Error extends React.Component {
     static propTypes = {
-        show: PropTypes.string,
+        show: PropTypes.bool,
         errorCode: PropTypes.number
     }
     messages = new Translations(translations, 'app.error.code.')
