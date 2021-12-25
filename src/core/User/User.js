@@ -5,6 +5,7 @@ class User {
         this._login = new API()
         this._registration = new API()
         this._data = new API()
+        this._save = new API()
         this.login = {
             API: this.login.bind(this),
             ...this._login.getStatus()
@@ -16,6 +17,10 @@ class User {
         this.data = {
             API: this.data.bind(this),
             ...this._data.getStatus()
+        }
+        this.save = {
+            API: this.save.bind(this),
+            ...this._save.getStatus()
         }
     }
 
@@ -32,6 +37,8 @@ class User {
     registration = (data) => this._registration.call('/api/user/registration', this.getInitData(data))
 
     data = (user) => this._data.call('/api/user/data', this.getInitData(user))
+
+    save = (data) => this._save.call('/api/user/save', this.getInitData(data))
 
     isLoggedIn = () => window.localStorage.getItem('isLoggedIn') === 'true'
 }

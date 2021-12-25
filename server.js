@@ -88,6 +88,14 @@ app.post('/api/user/data', (req, res) => {
     res.send(data[req.body.user].data || {})
 })
 
+app.post('/api/user/save', (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!')
+    }
+
+    res.send({success: true})
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
