@@ -42,6 +42,16 @@ class Comments extends React.Component {
         )
     }
 
+    componentDidUpdate (prevProps) {
+        if (prevProps.params.date !== this.props.params.date) {
+            // eslint-disable-next-line react/no-did-update-set-state
+            this.setState({
+                loading: true,
+                comments: {}
+            })
+        }
+    }
+
     render () {
         const { params } = this.props
         const { loading } = this.state

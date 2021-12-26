@@ -12,6 +12,12 @@ class NewsByDate extends NewsParent {
         return this.content(<News type='full' content={content.html} horizontal={false} date={content.date} />, 'NewsByDate')
     }
 
+    componentDidUpdate (prevProps) {
+        if (prevProps.date !== this.props.date) {
+            this.updateState(true, '')
+        }
+    }
+
     render () {
         const { isLoading } = this.state
         const { date } = this.props
