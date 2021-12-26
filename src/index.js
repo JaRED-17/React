@@ -2,8 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/styles.scss'
 import App from './components/App'
+import Translations from './translations'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+
+const messages = new Translations({
+    en: {
+        'app.head.title': 'Game news'
+    },
+    ru: {
+        'app.head.title': 'Новости игр'
+    }
+}, 'app.head.')
+
+document.title = messages.getTranslations('title')
 
 ReactDOM.render(
     <BrowserRouter>
