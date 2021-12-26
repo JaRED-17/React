@@ -37,7 +37,7 @@ class Comments extends React.Component {
 
         return (
             <div>
-                {comments.map(comment => <Comment key={comments.id} answers={comment.answers} content={comment.text} user={comment.user} date={comment.date} />)}
+                {comments.map(comment => <Comment key={comment.id} answers={comment.answers} content={comment.text} user={comment.user} date={comment.date} />)}
             </div>
         )
     }
