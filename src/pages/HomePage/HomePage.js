@@ -8,7 +8,7 @@ class HomePage extends React.Component {
             <>
                 <SideBanner class='left' />
                 <RecentNews />
-                <SideBanner class='rigth' />
+                <SideBanner class='right' />
             </>
         )
     }
