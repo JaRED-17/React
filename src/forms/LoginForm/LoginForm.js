@@ -1,15 +1,10 @@
 import React from 'react'
 import core from '../../core/Core'
-import Button from '../../components/Button'
-import Validation from '../../validation'
-import Field from '../../components/Field'
-import Error from '../../components/Error'
+import Form from '../Form'
 
 class LoginForm extends React.Component {
     state = {
-        hasError: false,
-        emailHasError: false,
-        passwordHasError: false
+        hasError: false
     }
 
     login = (data) => core.user.login.API(data).then(response => {
@@ -22,42 +17,14 @@ class LoginForm extends React.Component {
         this.setState({hasError: !response.success})
     })
 
-    onSubmit = (event) => {
-        event.preventDefault()
-        const email = event.target.email.value
-        const password = event.target.password.value
-        const emailValidation = Validation.email(email).success
-        const passwordValidation = Validation.password(password).success
-
-        this.setState({emailHasError: !emailValidation})
-        this.setState({passwordHasError: !passwordValidation})
-
-        if (!emailValidation || !passwordValidation) {
-            return
-        }
-
-        this.login({email, password})
-    }
-
     render () {
-        const { hasError, emailHasError, passwordHasError } = this.state
-        const showError = hasError && !emailHasError && !passwordHasError
+        const { hasError } = this.state
+        const fields = [
+            {id: 1, type: 'text', name: 'email'},
+            {id: 2, type: 'password', name: 'password'}
+        ]
 
-        return (
-            <div className='LoginForm'>
-                <form onSubmit={this.onSubmit}>
-                    <Error show={showError} errorCode={1} />
-                    <div className='Form'>
-                        <Field type={'text'} name={'email'} showWarning={emailHasError} />
-                        <Field type={'password'} name={'password'} showWarning={passwordHasError} />
-                    </div>
-
-                    <div className='Buttons'>
-                        <Button type='submit' className='primary' name='login' />
-                    </div>
-                </form>
-            </div>
-        )
+        return <Form fields={fields} name='login' formClassName='LoginForm' api={this.login} hasError={hasError} />
     }
 }
 
