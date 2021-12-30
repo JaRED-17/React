@@ -40,7 +40,7 @@ module.exports = {
                     to: path.resolve(__dirname, './dist/media')
                 }
             ]
-        }),
+        })
     ],
     module: {
         rules: [
