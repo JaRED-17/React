@@ -95,7 +95,7 @@ class Form extends React.Component {
                 <form onSubmit={this.onSubmit}>
                     <Error show={showError} errorCode={1} />
                     <div className='Form'>
-                        {fields.map(field => <Field key={field.id} type={field.type} name={field.name} showWarning={this.showWarning(field.name)} />)}
+                        {fields.map(field => <Field key={field.id} type={field.type} name={field.name} showWarning={this.showWarning(field.name)} value={field.value || ''} />)}
                     </div>
 
                     <div className='Buttons'>

@@ -1,16 +1,11 @@
 import React from 'react'
-import Error from '../../components/Error'
-import Field from '../../components/Field'
-import Button from '../../components/Button'
 import core from '../../core/Core/Core'
-import Validation from '../../validation'
+import Form from '../Form'
 
 class MyAccountForm extends React.Component {
     state = {
-        userData: {},
-        firstNameHasError: false,
-        lastNameHasError: false,
-        emailHasError: false
+        hasError: false,
+        userData: {}
     }
 
     getUserData = (user) => core.user.data.API(user)
@@ -29,45 +24,15 @@ class MyAccountForm extends React.Component {
         this.populateUserData()
     }
 
-    onSubmit = (event) => {
-        event.preventDefault()
-        const firstName = event.target.firstName.value
-        const lastName = event.target.lastName.value
-        const email = event.target.email.value
-        const firstNameValidation = Validation.firstName(firstName).success
-        const lastNameValidation = Validation.lastName(lastName).success
-        const emailValidation = Validation.email(email).success
-
-        this.setState({firstNameHasError: !firstNameValidation})
-        this.setState({lastNameHasError: !lastNameValidation})
-        this.setState({emailHasError: !emailValidation})
-
-        if (!firstNameValidation || !lastNameValidation || !emailValidation) {
-            return
-        }
-
-        this.saveUserData({firstName, lastName, email})
-    }
-
     render () {
-        const { userData, firstNameHasError, lastNameHasError, emailHasError } = this.state
+        const { hasError, userData } = this.state
+        const fields = [
+            {id: 1, type: 'text', name: 'firstName', value: userData.firstName || ''},
+            {id: 2, type: 'text', name: 'lastName', value: userData.lastName || ''},
+            {id: 3, type: 'text', name: 'email', value: userData.email || ''}
+        ]
 
-        return (
-            <div className='MyAccountForm'>
-                <form onSubmit={this.onSubmit}>
-                    <Error show={false} errorCode={1} />
-                    <div className='Form'>
-                        <Field type={'text'} name={'firstName'} showWarning={firstNameHasError} value={userData.firstName || ''} />
-                        <Field type={'text'} name={'lastName'} showWarning={lastNameHasError} value={userData.lastName || ''} />
-                        <Field type={'text'} name={'email'} showWarning={emailHasError} value={userData.email || ''} />
-                    </div>
-
-                    <div className='Buttons'>
-                        <Button type='submit' className='primary' name='save' />
-                    </div>
-                </form>
-            </div>
-        )
+        return <Form fields={fields} name='save' formClassName='MyAccountForm' api={this.saveUserData} hasError={hasError} />
     }
 }
 
