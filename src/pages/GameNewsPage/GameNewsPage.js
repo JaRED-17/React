@@ -26,19 +26,11 @@ class GameNewsPage extends React.Component {
     newsByDate = (urlParams) => {
         return (
             <div className='newsPage'>
-                <div className='newsByDate'>
-                    <NewsByDate date={urlParams.date || '01.05.2021'} />
-                </div>
-                <div className='NewComment'>
-                    <NewComment />
-                </div>
-                <div className='Comments'>
-                    <Comments params={urlParams} />
-                </div>
-                <div className='recentNews'>
-                    <h3>{this.messages.getTranslations('lastNews')}</h3>
-                    <RecentNews skipNews={urlParams.date} />
-                </div>
+                <NewsByDate date={urlParams.date || '01.05.2021'} />
+                <NewComment />
+                <Comments params={urlParams} />
+                <h3>{this.messages.getTranslations('lastNews')}</h3>
+                <RecentNews skipNews={urlParams.date} />
             </div>
         )
     }

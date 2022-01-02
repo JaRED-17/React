@@ -1,5 +1,7 @@
 .LastNNews {
-    width: calc(100% - 400px);
+    height: 100px;
+    min-height: 500px;
+    min-width: 500px;
 
     @include media-sm {
         width: calc(100% - 200px);

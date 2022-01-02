@@ -26,7 +26,7 @@ class Comments extends React.Component {
 
     emptyComments = () => {
         return (
-            <div>
+            <div className='Comments'>
                 <h4>{this.messages.getTranslations('noComments')}</h4>
             </div>
         )
@@ -36,7 +36,7 @@ class Comments extends React.Component {
         const { comments } = this.state
 
         return (
-            <div>
+            <div className='Comments'>
                 {comments.map(comment => <Comment key={comment.id} answers={comment.answers} content={comment.text} user={comment.user} date={comment.date} />)}
             </div>
         )

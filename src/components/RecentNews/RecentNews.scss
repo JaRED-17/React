@@ -1,5 +1,7 @@
 .RecentNews {
+    height: 100px;
     width: calc(100% - 400px);
+    min-height: 500px;
     min-width: 500px;
 
     @include media-sm {
