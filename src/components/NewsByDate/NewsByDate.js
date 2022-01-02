@@ -3,27 +3,39 @@ import News from '../News'
 import core from '../../core/Core'
 import NewsParent from '../NewsParent'
 import Loading from '../Loading'
+import { observer } from 'mobx-react'
 
+@observer
 class NewsByDate extends NewsParent {
-    news = (date = null) => core.news.newsByDate.API(date).then(response => this.updateState(core.news.newsByDate.loading() || false, response))
-
-    get newsContent () {
-        const { content } = this.state
-
-        return content ? <News type='full' content={content.html} horizontal={false} date={content.date} /> : null
+    componentDidMount () {
+        this.news()
     }
 
     componentDidUpdate (prevProps) {
         if (prevProps.date !== this.props.date) {
-            this.updateState(true, '')
+            this.news()
         }
     }
 
-    render () {
-        const { loading } = this.state
-        const { date } = this.props
+    get coreApi () {
+        return core.news.newsByDate
+    }
 
-        if (loading) this.news(date)
+    news = () => {
+        const { date = null } = this.props
+
+        this.coreApi.API(date)
+    }
+
+    get newsContent () {
+        const content = this.coreApi.response()
+
+        return content ? <News type='full' content={content.html} horizontal={false} date={content.date} /> : null
+    }
+
+    render () {
+        const loading = this.coreApi.loading()
+
         return (
             <div className='NewsByDate row'>
                 {loading ? <Loading /> : this.newsContent}

@@ -1,19 +1,15 @@
+import { makeObservable, observable, action } from 'mobx'
+
 class API {
     constructor () {
-        this.loading = false
+        this.loading = true
         this.error = false
         this.errorMessage = null
         this.response = null
-        this.getLoading = this.getLoading.bind(this)
-        this.setLoading = this.setLoading.bind(this)
-        this.getError = this.getError.bind(this)
-        this.setError = this.setError.bind(this)
-        this.getErrorMessage = this.getErrorMessage.bind(this)
-        this.setErrorMessage = this.setErrorMessage.bind(this)
-        this.getResponse = this.getResponse.bind(this)
-        this.setResponse = this.setResponse.bind(this)
-        this.getStatus = this.getStatus.bind(this)
-        this.call = this.call.bind(this)
+        makeObservable(this, {
+            loading: observable,
+            setLoading: action.bound
+        })
     }
 
     /* loading */
@@ -40,7 +36,8 @@ class API {
     });
 
     call = (url, init = null, defaultValue = '', type = 'json') => {
-        this.setLoading(true)
+        this.setResponse(null)
+        if (!this.getLoading()) this.setLoading(true)
         this.setError(false)
         this.setErrorMessage(null)
         return fetch(url, init)

@@ -3,12 +3,22 @@ import News from '../News'
 import core from '../../core/Core'
 import NewsParent from '../NewsParent'
 import Loading from '../Loading'
+import { observer } from 'mobx-react'
 
+@observer
 class RecentNews extends NewsParent {
-    allNews = () => core.news.allNews.API().then(response => this.updateState(core.news.allNews.loading() || false, response))
+    componentDidMount () {
+        this.allNews()
+    }
+
+    get coreApi () {
+        return core.news.allNews
+    }
+
+    allNews = () => this.coreApi.API()
 
     get newsContent () {
-        const { content } = this.state
+        const content = this.coreApi.response()
         const { skipNews } = this.props
 
         return !content ? null : content.map(currentNews => currentNews.html && currentNews.date !== skipNews
@@ -18,9 +28,8 @@ class RecentNews extends NewsParent {
     }
 
     render () {
-        const { loading } = this.state
+        const loading = this.coreApi.loading()
 
-        if (loading) this.allNews()
         return (
             <div className='RecentNews row'>
                 {loading ? <Loading /> : this.newsContent}
