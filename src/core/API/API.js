@@ -2,13 +2,16 @@ class API {
     constructor () {
         this.loading = false
         this.error = false
-        this.errorMessage = ''
+        this.errorMessage = null
+        this.response = null
         this.getLoading = this.getLoading.bind(this)
         this.setLoading = this.setLoading.bind(this)
         this.getError = this.getError.bind(this)
         this.setError = this.setError.bind(this)
         this.getErrorMessage = this.getErrorMessage.bind(this)
         this.setErrorMessage = this.setErrorMessage.bind(this)
+        this.getResponse = this.getResponse.bind(this)
+        this.setResponse = this.setResponse.bind(this)
         this.getStatus = this.getStatus.bind(this)
         this.call = this.call.bind(this)
     }
@@ -25,7 +28,12 @@ class API {
     getErrorMessage = () => this.errorMessage
     setErrorMessage = message => { this.errorMessage = message }
 
+    /* response */
+    getResponse = () => this.response
+    setResponse = response => { this.response = response }
+
     getStatus = () => ({
+        response: this.getResponse(),
         loading: this.getLoading(),
         error: this.getError(),
         errorMessage: this.getErrorMessage()
@@ -34,7 +42,7 @@ class API {
     call = (url, init = null, defaultValue = '', type = 'json') => {
         this.setLoading(true)
         this.setError(false)
-        this.setErrorMessage('')
+        this.setErrorMessage(null)
         return fetch(url, init)
             .then(response => {
                 return response.status === 200
@@ -42,10 +50,12 @@ class API {
                     : defaultValue
             })
             .then(response => {
+                this.setResponse(response)
                 this.setLoading(false)
                 return response
             })
             .catch(error => {
+                this.setResponse(null)
                 this.setLoading(false)
                 this.setError(true)
                 this.setErrorMessage(error.message)
