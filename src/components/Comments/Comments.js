@@ -25,21 +25,13 @@ class Comments extends React.Component {
     })
 
     emptyComments = () => {
-        return (
-            <div className='Comments'>
-                <h4>{this.messages.getTranslations('noComments')}</h4>
-            </div>
-        )
+        return <h4>{this.messages.getTranslations('noComments')}</h4>
     }
 
     Comments = () => {
         const { comments } = this.state
 
-        return (
-            <div className='Comments'>
-                {comments.map(comment => <Comment key={comment.id} answers={comment.answers} content={comment.text} user={comment.user} date={comment.date} />)}
-            </div>
-        )
+        return comments.map(comment => <Comment key={comment.id} answers={comment.answers} content={comment.text} user={comment.user} date={comment.date} />)
     }
 
     componentDidUpdate (prevProps) {
@@ -57,7 +49,11 @@ class Comments extends React.Component {
         const { loading } = this.state
 
         if (loading) this.getComments({date: params.date, id: params.id})
-        return loading ? this.emptyComments() : this.Comments()
+        return (
+            <div className='Comments'>
+                {loading ? this.emptyComments() : this.Comments()}
+            </div>
+        )
     }
 }
 
