@@ -37,7 +37,7 @@ class News {
 
     allNews = () => this._allNews.call('/api/news/allnews', null, [this.defaultValue])
 
-    lastNNews = (count) => this._allNews.call('/api/news/lastnnews', {
+    lastNNews = (count) => this._lastNNews.call('/api/news/lastnnews', {
         ...this.getInitData(),
         body: JSON.stringify(count)
     }, [this.defaultValue])
