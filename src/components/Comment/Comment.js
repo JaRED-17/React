@@ -21,16 +21,19 @@ class Comment extends React.Component {
                     <div className='avatar' />
                     <div>
                         <div className='userName'>{user}</div>
-                        <div className='date'>{date}</div>
+                        <time className='date'>{date}</time>
                     </div>
                 </div>
                 <div className='Comment-content'>
                     {content}
                 </div>
-                <div className='Comment-answers'>
-                    <p>{this.messages.getTranslations('answers', {count: answers})}</p>
+                <div className='Comment-answer'>
                     <a href='#'>{this.messages.getTranslations('answer')}</a>
                 </div>
+                <details className='Comment-answers'>
+                    <summary>{this.messages.getTranslations('answers', {count: answers})}</summary>
+                    <p>More info about the details.</p>
+                </details>
             </div>
         )
     }
