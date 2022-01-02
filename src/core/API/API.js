@@ -33,10 +33,10 @@ class API {
     setResponse = response => { this.response = response }
 
     getStatus = () => ({
-        response: this.getResponse(),
-        loading: this.getLoading(),
-        error: this.getError(),
-        errorMessage: this.getErrorMessage()
+        response: this.getResponse.bind(this),
+        loading: this.getLoading.bind(this),
+        error: this.getError.bind(this),
+        errorMessage: this.getErrorMessage.bind(this)
     });
 
     call = (url, init = null, defaultValue = '', type = 'json') => {
