@@ -18,12 +18,12 @@ class RecentNews extends NewsParent {
     }
 
     render () {
-        const { isLoading } = this.state
+        const { loading } = this.state
 
-        if (isLoading) this.allNews()
+        if (loading) this.allNews()
         return (
             <div className='RecentNews row'>
-                {isLoading ? <Loading /> : this.newsContent}
+                {loading ? <Loading /> : this.newsContent}
             </div>
         )
     }

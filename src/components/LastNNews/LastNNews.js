@@ -18,12 +18,12 @@ class LastNNews extends NewsParent {
     }
 
     render () {
-        const { isLoading } = this.state
+        const { loading } = this.state
 
-        if (isLoading) this.lastNNews({count: 3})
+        if (loading) this.lastNNews({count: 3})
         return (
             <div className='LastNNews row'>
-                {isLoading ? <Loading /> : this.newsContent}
+                {loading ? <Loading /> : this.newsContent}
             </div>
         )
     }

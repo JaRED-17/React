@@ -2,13 +2,13 @@ import React from 'react'
 
 class NewsParent extends React.Component {
     state = {
-        isLoading: true,
+        loading: true,
         content: ''
     }
 
     updateState = (loading, content) => {
         this.setState({
-            isLoading: loading,
+            loading: loading,
             content: content
         })
     }

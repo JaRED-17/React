@@ -1,11 +1,11 @@
 import React from 'react'
 
 class Preloader extends React.Component {
-    state = {isLoading: true}
+    state = { loading: true }
 
     componentDidMount () {
         setTimeout(() => {
-            this.setState({isLoading: false})
+            this.setState({ loading: false })
         }, 1500)
     }
 
@@ -14,9 +14,9 @@ class Preloader extends React.Component {
     }
 
     render () {
-        const { isLoading } = this.state
+        const { loading } = this.state
 
-        return isLoading ? this.content : null
+        return loading ? this.content : null
     }
 }
 

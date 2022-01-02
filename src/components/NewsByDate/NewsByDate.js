@@ -20,13 +20,13 @@ class NewsByDate extends NewsParent {
     }
 
     render () {
-        const { isLoading } = this.state
+        const { loading } = this.state
         const { date } = this.props
 
-        if (isLoading) this.news(date)
+        if (loading) this.news(date)
         return (
             <div className='NewsByDate row'>
-                {isLoading ? <Loading /> : this.newsContent}
+                {loading ? <Loading /> : this.newsContent}
             </div>
         )
     }
