@@ -12,4 +12,8 @@ class Core {
     }
 }
 
-export default new Core()
+const core = new Core()
+
+window.core = core
+
+export default core
