@@ -1,5 +1,6 @@
 .RecentNews {
     width: calc(100% - 400px);
+    min-width: 500px;
 
     @include media-sm {
         width: calc(100% - 200px);

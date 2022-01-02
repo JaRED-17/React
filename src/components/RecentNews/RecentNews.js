@@ -2,6 +2,7 @@ import React from 'react'
 import News from '../News'
 import core from '../../core/Core'
 import NewsParent from '../NewsParent'
+import Loading from '../Loading'
 
 class RecentNews extends NewsParent {
     allNews = () => core.news.allNews.API().then(response => this.updateState(core.news.allNews.loading || false, response))
@@ -10,18 +11,21 @@ class RecentNews extends NewsParent {
         const { content } = this.state
         const { skipNews } = this.props
 
-        return this.content(content.map(currentNews => {
-            return currentNews.html && currentNews.date !== skipNews
-                ? <News key={currentNews.date} type='short' content={currentNews.html} horizontal date={currentNews.date} />
-                : null
-        }), 'RecentNews')
+        return content.map(currentNews => currentNews.html && currentNews.date !== skipNews
+            ? <News key={currentNews.date} type='short' content={currentNews.html} horizontal date={currentNews.date} />
+            : null
+        )
     }
 
     render () {
         const { isLoading } = this.state
 
         if (isLoading) this.allNews()
-        return isLoading ? this.content() : this.newsContent
+        return (
+            <div className='RecentNews row'>
+                {isLoading ? <Loading /> : this.newsContent}
+            </div>
+        )
     }
 }
 
