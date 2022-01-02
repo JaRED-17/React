@@ -2,6 +2,7 @@ import React from 'react'
 import News from '../News'
 import core from '../../core/Core'
 import NewsParent from '../NewsParent'
+import Loading from '../Loading'
 
 class NewsByDate extends NewsParent {
     news = (date = null) => core.news.newsByDate.API(date).then(response => this.updateState(core.news.newsByDate.loading || false, response))
@@ -9,7 +10,7 @@ class NewsByDate extends NewsParent {
     get newsContent () {
         const { content } = this.state
 
-        return this.content(<News type='full' content={content.html} horizontal={false} date={content.date} />, 'NewsByDate')
+        return <News type='full' content={content.html} horizontal={false} date={content.date} />
     }
 
     componentDidUpdate (prevProps) {
@@ -23,7 +24,11 @@ class NewsByDate extends NewsParent {
         const { date } = this.props
 
         if (isLoading) this.news(date)
-        return isLoading ? this.content() : this.newsContent
+        return (
+            <div className='NewsByDate row'>
+                {isLoading ? <Loading /> : this.newsContent}
+            </div>
+        )
     }
 }
 

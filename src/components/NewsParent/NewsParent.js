@@ -12,8 +12,6 @@ class NewsParent extends React.Component {
             content: content
         })
     }
-
-    content = (News, className) => <div className={`${className} row`}>{News}</div>
 }
 
 export default NewsParent
