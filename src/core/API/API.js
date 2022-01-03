@@ -37,9 +37,12 @@ class API {
 
     call = (url, init = null, defaultValue = '', type = 'json') => {
         this.setResponse(null)
-        if (!this.getLoading()) this.setLoading(true)
+        if (!this.getLoading()) {
+            this.setLoading(true)
+        }
         this.setError(false)
         this.setErrorMessage(null)
+
         return fetch(url, init)
             .then(response => {
                 return response.status === 200

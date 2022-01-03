@@ -8,12 +8,12 @@ import { observer } from 'mobx-react'
 @observer
 class NewsByDate extends NewsParent {
     componentDidMount () {
-        this.news()
+        this.newsByDate()
     }
 
     componentDidUpdate (prevProps) {
         if (prevProps.date !== this.props.date) {
-            this.news()
+            this.newsByDate()
         }
     }
 
@@ -21,7 +21,7 @@ class NewsByDate extends NewsParent {
         return core.news.newsByDate
     }
 
-    news = () => {
+    newsByDate = () => {
         const { date = null } = this.props
 
         this.coreApi.API(date)
