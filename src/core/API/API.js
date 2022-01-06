@@ -13,11 +13,11 @@ class API {
     }
 
     /* loading */
-    getLoading = () => this.loading;
+    getLoading = () => this.loading
     setLoading = flag => { this.loading = flag }
 
     /* error */
-    getError = () => this.error;
+    getError = () => this.error
     setError = flag => { this.error = flag }
 
     /* errorMessage */
@@ -33,7 +33,7 @@ class API {
         loading: this.getLoading.bind(this),
         error: this.getError.bind(this),
         errorMessage: this.getErrorMessage.bind(this)
-    });
+    })
 
     call = (url, init = null, defaultValue = '', type = 'json') => {
         this.setResponse(null)

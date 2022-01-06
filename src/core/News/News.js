@@ -28,7 +28,7 @@ class News {
         headers: {
             'content-type': 'application/json; charset=UTF-8'
         }
-    });
+    })
 
     newsByDate = (date) => this._newsByDate.call('/api/news/newsbydate', {
         ...this.getInitData(),
