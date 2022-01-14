@@ -105,6 +105,12 @@ app.post('/api/comments', (req, res) => {
     res.send(data ? data[req.body.date] ? data[req.body.date]['id' + req.body.id] : {} : {})
 })
 
+app.post('/api/settings', (req, res) => {
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, '/src', '/data/settings.json'), 'utf-8'))
+
+    res.send(data || {})
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })

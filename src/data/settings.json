@@ -1,0 +1,11 @@
+{
+    "forms": {
+        "login": {
+            "fields": [
+                {"id": 1, "type": "text", "name": "email"},
+                {"id": 2, "type": "password", "name": "password"}
+            ],
+            "buttons": []
+        }
+    }
+}
