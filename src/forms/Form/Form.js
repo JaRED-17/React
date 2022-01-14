@@ -21,7 +21,7 @@ class Form extends React.Component {
         const { fields } = this.props
         let result = {}
 
-        fields.map(field => { result[field.name] = false })
+        fields.forEach(field => { result[field.name] = false })
         this.setState({ fieldsHasError: result })
     }
 
@@ -31,7 +31,7 @@ class Form extends React.Component {
         const { fields } = this.props
         let result = {}
 
-        fields.map(field => { result[field.name] = event.target[field.name].value })
+        fields.forEach(field => { result[field.name] = event.target[field.name].value })
         return result
     }
 
@@ -40,7 +40,7 @@ class Form extends React.Component {
         let success = true
         let result = {}
 
-        fields.map(field => {
+        fields.forEach(field => {
             const isFieldValidateSuccess = Validation[field.name](values[field.name]).success
 
             if (!isFieldValidateSuccess) success = false
@@ -71,7 +71,7 @@ class Form extends React.Component {
 
         if (this.isEmpty(fieldsHasError)) return false
 
-        fields.map(field => {
+        fields.forEach(field => {
             if (!result) {
                 result = fieldsHasError[field.name] ? fieldsHasError[field.name] : false
             }
