@@ -35,16 +35,12 @@ class GameNewsPage extends React.Component {
         )
     }
 
-    LastNNews = () => {
-        return <LastNNews />
-    }
-
     render () {
         const { urlParams } = this
 
         return (
             <div className='newsPage'>
-                {urlParams ? this.newsByDate(urlParams) : this.LastNNews()}
+                {urlParams ? this.newsByDate(urlParams) : <LastNNews />}
             </div>
         )
     }
