@@ -1,5 +1,5 @@
 import React from 'react'
-import core from '../../core/Core'
+import withCore from './../withCore'
 import Comment from '../Comment'
 import translations from './translations'
 import Translations from '../../translations'
@@ -9,7 +9,8 @@ import { observer } from 'mobx-react'
 @observer
 class Comments extends React.Component {
     static propTypes = {
-        params: PropTypes.object
+        params: PropTypes.object,
+        core: PropTypes.object
     }
     messages = new Translations(translations, 'app.comments.')
 
@@ -24,6 +25,7 @@ class Comments extends React.Component {
     }
 
     get coreApi () {
+        const { core } = this.props
         return core.comments.comments
     }
 
@@ -56,4 +58,4 @@ class Comments extends React.Component {
     }
 }
 
-export default Comments
+export default withCore(Comments)
