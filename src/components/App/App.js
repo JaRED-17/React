@@ -4,7 +4,7 @@ import Content from '../Content'
 import Footer from '../Footer'
 import Preloader from '../Preloader'
 import PopupHandler from '../PopupHandler'
-import {CoreProvider} from '../CoreContext'
+import {CoreProvider} from '../../helpers/CoreContext'
 import core from '../../core/Core'
 
 class App extends React.Component {

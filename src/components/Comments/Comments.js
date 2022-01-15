@@ -1,5 +1,5 @@
 import React from 'react'
-import withCore from './../withCore'
+import withCore from '../../helpers/withCore'
 import Comment from '../Comment'
 import translations from './translations'
 import Translations from '../../translations'
