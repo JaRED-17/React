@@ -5,11 +5,7 @@ const withCore = (Wrapper) => {
     return (props) => {
         return (
             <CoreConsumer>
-                {
-                    (core) => {
-                        return <Wrapper {...props} core={core} />
-                    }
-                }
+                {(core) => <Wrapper {...props} core={core} />}
             </CoreConsumer>
         )
     }
