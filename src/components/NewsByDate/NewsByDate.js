@@ -1,12 +1,17 @@
 import React from 'react'
 import News from '../News'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 import NewsParent from '../NewsParent'
 import Loading from '../Loading'
 import { observer } from 'mobx-react'
+import PropTypes from 'prop-types'
 
 @observer
 class NewsByDate extends NewsParent {
+    static propTypes = {
+        core: PropTypes.object
+    }
+
     componentDidMount () {
         this.newsByDate()
     }
@@ -18,6 +23,7 @@ class NewsByDate extends NewsParent {
     }
 
     get coreApi () {
+        const { core } = this.props
         return core.news.newsByDate
     }
 
@@ -44,4 +50,4 @@ class NewsByDate extends NewsParent {
     }
 }
 
-export default NewsByDate
+export default withCore(NewsByDate)

@@ -1,17 +1,23 @@
 import React from 'react'
 import News from '../News'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 import NewsParent from '../NewsParent'
 import Loading from '../Loading'
 import { observer } from 'mobx-react'
+import PropTypes from 'prop-types'
 
 @observer
 class RecentNews extends NewsParent {
+    static propTypes = {
+        core: PropTypes.object
+    }
+
     componentDidMount () {
         this.allNews()
     }
 
     get coreApi () {
+        const { core } = this.props
         return core.news.allNews
     }
 
@@ -38,4 +44,4 @@ class RecentNews extends NewsParent {
     }
 }
 
-export default RecentNews
+export default withCore(RecentNews)

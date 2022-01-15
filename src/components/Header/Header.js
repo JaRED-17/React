@@ -4,15 +4,16 @@ import { withRouter, Link } from 'react-router-dom'
 import translations from './translations'
 import Translations from '../../translations'
 import PropTypes from 'prop-types'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 
 class Header extends React.Component {
     static propTypes = {
+        core: PropTypes.object,
         history: PropTypes.object
     }
     messages = new Translations(translations, 'app.header.')
 
-    isLoggedIn = () => core.user.isLoggedIn()
+    isLoggedIn = () => this.props.core.user.isLoggedIn()
 
     onClick = (path) => this.props.history.push(`/${path}`)
 
@@ -43,4 +44,4 @@ class Header extends React.Component {
     }
 }
 
-export default withRouter(Header)
+export default withRouter(withCore(Header))

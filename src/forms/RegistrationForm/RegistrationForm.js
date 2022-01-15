@@ -1,13 +1,22 @@
 import React from 'react'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 import Form from '../Form'
+import PropTypes from 'prop-types'
 
 class RegistrationForm extends React.Component {
+    static propTypes = {
+        core: PropTypes.object
+    }
     state = {
         hasError: false
     }
 
-    registration = (data) => core.user.registration.API(data).then(response => {
+    get coreUser () {
+        const { core } = this.props
+        return core.user
+    }
+
+    registration = (data) => this.coreUser.registration.API(data).then(response => {
         console.log(response)
         this.setState({hasError: !response.success})
     })
@@ -23,4 +32,4 @@ class RegistrationForm extends React.Component {
     }
 }
 
-export default RegistrationForm
+export default withCore(RegistrationForm)

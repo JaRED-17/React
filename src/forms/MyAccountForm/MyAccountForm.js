@@ -1,16 +1,25 @@
 import React from 'react'
-import core from '../../core/Core/Core'
+import withCore from '../../helpers/withCore'
 import Form from '../Form'
+import PropTypes from 'prop-types'
 
 class MyAccountForm extends React.Component {
+    static propTypes = {
+        core: PropTypes.object
+    }
     state = {
         hasError: false,
         userData: {}
     }
 
-    getUserData = (user) => core.user.data.API(user)
+    get coreUser () {
+        const { core } = this.props
+        return core.user
+    }
 
-    saveUserData = (data) => core.user.save.API(data)
+    getUserData = (user) => this.coreUser.data.API(user)
+
+    saveUserData = (data) => this.coreUser.save.API(data)
 
     populateUserData = () => {
         this.getUserData({user: 'user1'}).then(response => {
@@ -36,4 +45,4 @@ class MyAccountForm extends React.Component {
     }
 }
 
-export default MyAccountForm
+export default withCore(MyAccountForm)

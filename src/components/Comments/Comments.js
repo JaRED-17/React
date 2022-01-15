@@ -9,8 +9,8 @@ import { observer } from 'mobx-react'
 @observer
 class Comments extends React.Component {
     static propTypes = {
-        params: PropTypes.object,
-        core: PropTypes.object
+        core: PropTypes.object,
+        params: PropTypes.object
     }
     messages = new Translations(translations, 'app.comments.')
 

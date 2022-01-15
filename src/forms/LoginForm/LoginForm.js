@@ -1,13 +1,22 @@
 import React from 'react'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 import Form from '../Form'
+import PropTypes from 'prop-types'
 
 class LoginForm extends React.Component {
+    static propTypes = {
+        core: PropTypes.object
+    }
     state = {
         hasError: false
     }
 
-    login = (data) => core.user.login.API(data).then(response => {
+    get coreUser () {
+        const { core } = this.props
+        return core.user
+    }
+
+    login = (data) => this.coreUser.login.API(data).then(response => {
         console.log(response)
 
         if (response.success) {
@@ -28,4 +37,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm
+export default withCore(LoginForm)

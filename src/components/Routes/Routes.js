@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import core from '../../core/Core'
+import withCore from '../../helpers/withCore'
 
 /* Pages */
 import HomePage from '../../pages/HomePage'
@@ -9,9 +9,19 @@ import RegistrationPage from '../../pages/RegistrationPage'
 import GameNewsPage from '../../pages/GameNewsPage'
 import NotFoundPage from '../../pages/NotFoundPage'
 import MyAccountPage from '../../pages/MyAccountPage'
+import PropTypes from 'prop-types'
 
 class Routes extends React.Component {
-    isLoggedIn = () => core.user.isLoggedIn()
+    static propTypes = {
+        core: PropTypes.object
+    }
+
+    get coreUser () {
+        const { core } = this.props
+        return core.user
+    }
+
+    isLoggedIn = () => this.coreUser.isLoggedIn()
 
     render () {
         return (
@@ -27,4 +37,4 @@ class Routes extends React.Component {
     }
 }
 
-export default Routes
+export default withCore(Routes)
