@@ -6,6 +6,13 @@
                 {"id": 2, "type": "password", "name": "password"}
             ],
             "buttons": []
+        },
+        "account": {
+            "fields": [
+                {"id": 1, "type": "text", "name": "firstName", "value": ""},
+                {"id": 2, "type": "text", "name": "lastName", "value": ""},
+                {"id": 3, "type": "text", "name": "email", "value": ""}
+            ]
         }
     }
 }
