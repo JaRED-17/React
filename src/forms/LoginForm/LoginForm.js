@@ -23,9 +23,9 @@ class LoginForm extends React.Component {
         return core.user
     }
 
-    get coreSettings () {
+    get coreFields () {
         const { core } = this.props
-        return core.settings.settings
+        return core.settings.fields
     }
 
     login = (data) => this.coreUser.login.API(data).then(response => {
@@ -38,17 +38,17 @@ class LoginForm extends React.Component {
         this.setState({hasError: !response.success})
     })
 
-    settings = () => this.coreSettings.API()
+    settings = () => this.coreFields.API('login')
 
     get fields () {
-        const response = this.coreSettings.response()
-        return response ? response.forms?.login?.fields : {}
+        const response = this.coreFields.response()
+        return response || {}
     }
 
     render () {
         const { hasError } = this.state
         const fields = this.fields
-        const loading = this.coreSettings.loading()
+        const loading = this.coreFields.loading()
 
         return loading ? <Loading /> : <Form fields={fields} name='login' formClassName='LoginForm' api={this.login} hasError={hasError} />
     }

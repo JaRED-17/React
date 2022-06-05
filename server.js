@@ -111,6 +111,15 @@ app.post('/api/settings', (req, res) => {
     res.send(data || {})
 })
 
+app.post('/api/settings/fields', (req, res) => {
+    if (Object.keys(req.body).length === 0) {
+        return res.status(500).send('Something went wrong!')
+    }
+    const data = JSON.parse(fs.readFileSync(path.join(__dirname, '/src', '/data/settings.json'), 'utf-8'))
+
+    res.send(data ? data['forms'][req.body.form]['fields'] : {})
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })

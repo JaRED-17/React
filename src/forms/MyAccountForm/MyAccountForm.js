@@ -24,24 +24,24 @@ class MyAccountForm extends React.Component {
         return core.user
     }
 
-    get coreSettings () {
+    get coreFields () {
         const { core } = this.props
-        return core.settings.settings
+        return core.settings.fields
     }
 
     getUserData = (user) => this.coreUser.data.API(user)
 
     saveUserData = (data) => this.coreUser.save.API(data)
 
-    settings = () => this.coreSettings.API()
+    settings = () => this.coreFields.API('account')
 
     get fields () {
-        const response = this.coreSettings.response()
-        return response ? response.forms?.account?.fields : {}
+        const response = this.coreFields.response()
+        return response || {}
     }
 
     get isLoading () {
-        return this.coreUser.data.loading() || this.coreSettings.loading()
+        return this.coreUser.data.loading() || this.coreFields.loading()
     }
 
     render () {
@@ -55,7 +55,7 @@ class MyAccountForm extends React.Component {
             fields = this.fields
 
             fields.forEach(field => {
-                field.value = userData[field.name]
+                field.value = userData[field.name] || ''
             })
         }
 
