@@ -7,20 +7,18 @@ import PopupHandler from '../PopupHandler'
 import {CoreProvider} from '../../helpers/CoreContext'
 import core from '../../core/Core'
 
-class App extends React.Component {
-    render () {
-        return (
-            <div className='App'>
-                <CoreProvider value={core}>
-                    <Header />
-                    <Content />
-                    <Footer />
-                    <Preloader />
-                    <PopupHandler />
-                </CoreProvider>
-            </div>
-        )
-    }
+const App = () => {
+    return (
+        <div className='App'>
+            <CoreProvider value={core}>
+                <Header />
+                <Content />
+                <Footer />
+                <Preloader />
+                <PopupHandler />
+            </CoreProvider>
+        </div>
+    )
 }
 
 export default App
