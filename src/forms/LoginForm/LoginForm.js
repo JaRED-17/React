@@ -18,14 +18,16 @@ class LoginForm extends React.Component {
         this.settings()
     }
 
+    get core () {
+        return this.props.core
+    }
+
     get coreUser () {
-        const { core } = this.props
-        return core.user
+        return this.core.user
     }
 
     get coreFields () {
-        const { core } = this.props
-        return core.settings.fields
+        return this.core.settings.fields
     }
 
     login = (data) => this.coreUser.login.API(data).then(response => {
